@@ -55,8 +55,7 @@ Any previous related work/state of the art
 ```time```
 ```xgboost```
 
-```
-jsonschema==3.2.0
+```jsonschema==3.2.0
 numpy==1.18.1
 pandas==1.0.3
 scikit-learn==0.22.1
@@ -146,7 +145,7 @@ Not a summary of the work. The problem was relevant, now with your work, what ca
 
 # Front-end
 
-The Github repository of the **front-end web app** of the project, that uses the Streamlit app framework and web hosting on Heroku, can be found at https://github.com/daniel-isidro/heroku_hot_n_pop. Please visit this repository for further explanation.
+The Github repository of the **front-end web app** of the project, that uses the Streamlit app framework and web hosting on Heroku, can be found **[here](https://github.com/daniel-isidro/heroku_hot_n_pop)**. Please visit this repository for further explanation.
 
 ### User Manual
 
