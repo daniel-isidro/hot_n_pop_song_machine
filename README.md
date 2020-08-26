@@ -36,9 +36,9 @@ Any previous related work/state of the art
 
 You'll need a Spotify account (free or paid) to be able to use their web API, and then register your project as an app. For that, follow the instructions found on the ['Spotify for Developers' guide](https://developer.spotify.com/documentation/general/guides/app-settings/):
 
-1. On [your Dashboard](https://developer.spotify.com/dashboard/) click CREATE A CLIENT ID.
-2. Enter Application Name and Application Description and then click CREATE. Your application is registered, and the app view opens.
-3. On the app view, click Edit Settings to view and update your app settings. Edit Settings View
+1. On [your Dashboard](https://developer.spotify.com/dashboard/) click **CREATE A CLIENT ID**.
+2. Enter **Application Name** and **Application Description** and then click **CREATE**. Your application is registered, and the app view opens.
+3. On the app view, click **Edit Settings** to view and update your app settings.
 
 <img src="https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/spotifydashboard.png" width="300">
 
@@ -51,10 +51,10 @@ You'll need a Spotify account (free or paid) to be able to use their web API, an
 
 In order to not upload your Spotify Client ID and Client Secret tokens to Github, you can create a .env text file and place it into your local Github folder (e.g. in the spotify_api folder). Create a .gitignore file at the root folder of your Github local repository so the .env file is not uploaded to the remore repository. The content of the .env text file should look like this:
 
-```
+```python
   {
     "SPOTIPY_CLIENT_ID": "754b47a409f902c6kfnfk89964bf9f91",
-    "SPOTIPY_CLIENT_SECRET": "6v9657a368e14d7vdnff8c647fc5c5523b08"
+    "SPOTIPY_CLIENT_SECRET": "6v9657a368e14d7vdnff8c647fc5c552"
   }
 ```
 
@@ -78,7 +78,6 @@ If you also want to replicate the second part of the project, where we explore u
 10. [Data exploration (unbalanced dataset)](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/data_exploration/feature_selection_and_data_visualization_expanded_dataset.ipynb)
 11. [ML model selection (unbalanced dataset)](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/modeling/modeling_expanded_dataset.ipynb)
 12. [Prediction (unbalanced dataset)](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/modeling/model_predict_expanded_dataset.ipynb)
-
 
 # Raw Data Description
 
