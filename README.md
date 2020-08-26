@@ -49,7 +49,7 @@ You'll need a Spotify account (free or paid) to be able to use their web API, an
 
 ### 'settings.env' file
 
-In order to not upload your Spotify Client ID and Client Secret tokens to Github, you can create a .env text file and place it into your local Github folder (e.g. in the spotify_api folder). Create a .gitignore file at the root folder of your Github local repository so the .env file is not uploaded to the remore repository. The content of the .env text file should look like this:
+In order to not upload your Spotify Client ID and Client Secret tokens to Github, you can create a **.env text file** and place it into your local Github folder (e.g. in the spotify_api folder). Create a **.gitignore** file at the root folder of your Github local repository so the .env file is not uploaded to the remote repository. The content of the .env text file should look like this:
 
 ```python
   {
