@@ -32,6 +32,39 @@ Any previous related work/state of the art
 
 # Requirements
 
+### Python libraries
+
+```bs4```
+```datetime```
+```json```
+```math```
+```matplotlib```
+```numpy```
+```os```
+```pandas```
+```pickle```
+```random```
+```re```
+```requests```
+```scipy```
+```seaborn```
+```sklearn```
+```spotipy```
+```streamlit```
+```string```
+```time```
+```xgboost```
+
+```
+jsonschema==3.2.0
+numpy==1.18.1
+pandas==1.0.3
+scikit-learn==0.22.1
+spotipy==2.12.0
+streamlit==0.64.0
+xgboost==0.90
+```
+
 ### Spotify account
 
 You'll need a Spotify account (free or paid) to be able to use their web API, and then register your project as an app. For that, follow the instructions found on the ['Spotify for Developers' guide](https://developer.spotify.com/documentation/general/guides/app-settings/):
@@ -49,9 +82,9 @@ You'll need a Spotify account (free or paid) to be able to use their web API, an
 
 ### 'settings.env' file
 
-In order to not upload your Spotify Client ID and Client Secret tokens to Github, you can create a **.env text file** and place it into your local Github folder (e.g. in the spotify_api folder). Create a **.gitignore** file at the root folder of your Github local repository so the .env file is not uploaded to the remote repository. The content of the .env text file should look like this:
+In order to not upload your Spotify Client ID and Client Secret tokens to Github, you can create a **.env text file** and place it into your local Github repository. Create a **.gitignore** file at the root folder of your project so the .env file is not uploaded to the remote repository. The content of the .env text file should look like this:
 
-```python
+```
   {
     "SPOTIPY_CLIENT_ID": "754b47a409f902c6kfnfk89964bf9f91",
     "SPOTIPY_CLIENT_SECRET": "6v9657a368e14d7vdnff8c647fc5c552"
