@@ -32,6 +32,33 @@ Any previous related work/state of the art
 
 # Requirements
 
+### Spotify Web API
+
+You'll need a Spotify account (free or paid) to be able to use their API, and then register your project as an app. For that, follow the instructions found on the ['Spotify for Developers' guide](https://developer.spotify.com/documentation/general/guides/app-settings/):
+
+**Register Your App:**
+
+1. On [your Dashboard](https://developer.spotify.com/dashboard/) click CREATE A CLIENT ID.
+2. Enter Application Name and Application Description and then click CREATE. Your application is registered, and the app view opens.
+3. On the app view, click Edit Settings to view and update your app settings. Edit Settings View
+
+![Spotify Dashboard](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/spotifydashboard.png)
+
+**Note:** Find your **Client ID** and **Client Secret**; you need them in the authentication phase.
+
+* **Client ID** is the unique identifier of your application.
+* **Client Secret** is the key that you pass in secure calls to the Spotify Accounts and Web API services. Always store the client secret key securely; never reveal it publicly! If you suspect that the secret key has been compromised, regenerate it immediately by clicking the link on the edit settings view.
+
+### 'settings.env' file
+
+In order to not upload your Spotify Client ID and Client Secret tokens to Github, you can create a .env text file and place it into your local Github folder (e.g. in the spotify_api folder). Create a .gitignore file at the root folder of your Github local repository so the .env file is not uploaded to the remore repository. The content of the .env text file should look like this:
+
+```
+  {
+    "SPOTIPY_CLIENT_ID": "754b47a409f902c6kfnfk89964bf9f91",
+    "SPOTIPY_CLIENT_SECRET": "6v9657a368e14d7vdnff8c647fc5c5523b08"
+  }
+```
 
 
 # Execution Guide
