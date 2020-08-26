@@ -11,15 +11,15 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 [Introduction](#introduction) <br>
 [Requirements](#requirements) <br>
 [Execution Guide](#execution-Guide) <br>
-[Raw data description](#raw-data-description) <br>
+[Raw Data Description](#raw-data-description) <br>
 [Methodology](#methodology) <br>
-[Data Acquisition] <br>
-[Data Preparation] <br>
-[Data Exploration] <br>
-[Analysis] <br>
-[Summary](summary) <br>
-[Conclusions] <br>
-[Front-end] <br>
+[Data Acquisition](#data-acquisition) <br>
+[Data Preparation](#data-preparation) <br>
+[Data Exploration](#data-exploration) <br>
+[Analysis](#analysis) <br>
+[Summary](#summary) <br>
+[Conclusions](#conclusions) <br>
+[Front-end](#front-end) <br>
 
 # Introduction
 
