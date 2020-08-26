@@ -42,7 +42,7 @@ You'll need a Spotify account (free or paid) to be able to use their API, and th
 2. Enter Application Name and Application Description and then click CREATE. Your application is registered, and the app view opens.
 3. On the app view, click Edit Settings to view and update your app settings. Edit Settings View
 
-![Spotify Dashboard](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/spotifydashboard.png)
+<img src="https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/spotifydashboard.png" width="200">
 
 **Note:** Find your **Client ID** and **Client Secret**; you need them in the authentication phase.
 
