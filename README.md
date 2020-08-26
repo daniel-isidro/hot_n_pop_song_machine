@@ -32,17 +32,15 @@ Any previous related work/state of the art
 
 # Requirements
 
-### Spotify Web API
+### Spotify account
 
-You'll need a Spotify account (free or paid) to be able to use their API, and then register your project as an app. For that, follow the instructions found on the ['Spotify for Developers' guide](https://developer.spotify.com/documentation/general/guides/app-settings/):
-
-**Register Your App:**
+You'll need a Spotify account (free or paid) to be able to use their web API, and then register your project as an app. For that, follow the instructions found on the ['Spotify for Developers' guide](https://developer.spotify.com/documentation/general/guides/app-settings/):
 
 1. On [your Dashboard](https://developer.spotify.com/dashboard/) click CREATE A CLIENT ID.
 2. Enter Application Name and Application Description and then click CREATE. Your application is registered, and the app view opens.
 3. On the app view, click Edit Settings to view and update your app settings. Edit Settings View
 
-<img src="https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/spotifydashboard.png" width="200">
+<img src="https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/spotifydashboard.png" width="300">
 
 **Note:** Find your **Client ID** and **Client Secret**; you need them in the authentication phase.
 
