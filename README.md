@@ -4,13 +4,7 @@ Repository for the **Hot'n'Pop Song Machine** project, a Machine Learning song p
 
 The Github repository of the **front-end web app** of the project, that uses the Streamlit app framework and web hosting on Heroku, can be found at https://github.com/daniel-isidro/heroku_hot_n_pop.
 
-You can play with a live demo of the web app [here](https://hot-n-pop-song-machine.herokuapp.com).
-
-# Requirements
-
-
-# Execution Guide
-
+You can play with a live demo of the web app **[here](https://hot-n-pop-song-machine.herokuapp.com)**.
 
 # Introduction
 
@@ -18,6 +12,14 @@ What
 Why
 Why is it relevant
 Any previous related work/state of the art
+
+# Requirements
+
+
+
+# Execution Guide
+
+
 
 # Raw data description
 
@@ -53,12 +55,12 @@ Not a summary of the work. The problem was relevant, now with your work, what ca
 
 # Front-end
 
-The Github repository of the **front-end web app** of the project, that uses the Streamlit app framework and web hosting on Heroku, can be found at https://github.com/daniel-isidro/heroku_hot_n_pop.
+The Github repository of the **front-end web app** of the project, that uses the Streamlit app framework and web hosting on Heroku, can be found at https://github.com/daniel-isidro/heroku_hot_n_pop. Please visit this repository for further explanation.
 
 ### User Manual
 
-You can play with a live demo of the web app [here](https://hot-n-pop-song-machine.herokuapp.com). You just input a song name (e.g. **juice**), or an artist name followed by a song name (e.g. **harry styles watermelon sugar**), and press enter.
+You can play with a live demo of the web app **[here](https://hot-n-pop-song-machine.herokuapp.com)**. You just input a song name (e.g. **juice**), or an artist name followed by a song name (e.g. **harry styles watermelon sugar**), and press enter.
 
 ![web_app](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/web_app.png)
 
-Then you get the probability of the song being hot and popular if it was released today, and below you get the album cover and an audio sample (NOTE: not all tracks include an audio sample due to copyright).
+Then you get the probability of the song being hot and popular if it was released today, and below an audio sample and the album cover are displayed (NOTE: not all tracks include an audio sample due to copyright).
