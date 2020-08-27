@@ -36,18 +36,17 @@ Anaconda virtual environment with Python 3.7.7 or higher and the following libra
 
 ### Anaconda Python packages
 
-```beautifulsoup4``` <br>
-```jsonschema``` <br>
-```matplotlib``` <br>
-```numpy``` <br>
-```pandas``` <br>
-```random``` <br>
-```requests``` <br>
-```scipy``` <br>
-```seaborn``` <br>
-```scikit-learn``` <br>
-```spotipy``` <br>
-```xgboost``` <br>
+* beautifulsoup4
+* jsonschema
+* matplotlib
+* numpy
+* pandas
+* requests
+* scipy
+* seaborn
+* scikit-learn
+* spotipy
+* xgboost
 
 For avoiding future compatibility issues, here are the versions of the key libraries used:
 
@@ -59,7 +58,6 @@ scikit-learn==0.22.1
 spotipy==2.12.0
 xgboost==0.90
 ```
-
 ### Spotify account
 
 You'll need a Spotify account (free or paid) to be able to use their web API, and then register your project as an app. For that, follow the instructions found on the ['Spotify for Developers' guide](https://developer.spotify.com/documentation/general/guides/app-settings/):
@@ -105,7 +103,7 @@ Randomly generating 10,000 not-hit songs from years 2000-2020 and getting their 
 
 4. [Data preparation](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/data_prep/data_prep.ipynb)
 
-Merging both datasets, hit songs and not hit songs.
+Merging both datasets, hit songs and not-hit songs.
 
 5. [Data exploration](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/data_exploration/feature_selection_and_data_visualization.ipynb)
 
@@ -129,7 +127,7 @@ Randomly generating 20,000 more not-hit songs from years 2000-2020, to a total o
 
 9. [Data preparation (unbalanced dataset)](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/data_prep/data_prep_expanded_dataset.ipynb)
 
-Merging both datasets, hit songs and not hit songs. Now resulting on an unbalanced dataset, aprox. 3:1 not-hit to hit songs.
+Merging both datasets, hit songs and not-hit songs. Now resulting on an unbalanced dataset, aprox. 3:1 not-hit to hit songs.
 
 10. [Data exploration (unbalanced dataset)](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/data_exploration/feature_selection_and_data_visualization_expanded_dataset.ipynb)
 
@@ -153,11 +151,31 @@ ML techniques, statistical methodologies
 
 # Data Acquisition
 
+### Web Scraping
 
+For getting all Billboard 100 US weekly hit songs and artist names from 1962 till 2020, we will do **web scraping** on the [Ultimate Music Database](http://umdmusic.com/default.asp?Lang=English&Chart=D) website.
+
+We use **BeautifulSoup4** as our Python library tool for scraping the web.
+
+The result is a data frame with three columns: year, artist, and title. Then we save the data frame into a CSV file.
+
+We do several scraping passes on the website, covering just one or two decades, to avoid being kicked by the website.
+
+At the end we merge all data frames into one final CSV file, getting all hit titles from 1962 until late June 2020.
+
+### Spotify Web API
+
+**Hit Songs**
+
+Now we take the resulting data frame on the previous step, **remove all songs older than 2000** (as older hit songs may not predict future hits since people's preferences change over time), remove duplicates and clean artist and title names with regular expressions. Then we use **spotipy** Python library to call Spotify Web API and get the audio features of those hit songs. Finally we add a column, **success**, with value 1.0 in all rows, that will serve us in the modeling phase of the project. The resulting data frame has around 8,000 entries.
+
+**Not-hit Songs**
+
+As Machine learning models usually perform better with **balanced datasets**, we will need to get other 8,000 not-hit songs that exist in the Spotify catalog. So we create a **function** that generates around 10,000 **pseudo-random songs** to balance the hit/not-hit songs dataset. We specify that the year range of those random songs as the same one as the selected for hit songs: from 2000 until 2020. We put the results on a data frame, then we remove duplicates and nulls, and we add a column, **success**, with value 0.0 in all rows, that will serve us in the modeling phase of the project. The resulting data frame has around 9,500 entries.
 
 # Data Preparation
 
-
+In this section we **combine both datasets** (hit songs and not-hit songs), into one data frame, remove duplicates and nulls, and **remove the exceeding not-hit songs** so we get a balanced dataset (same number of rows with *success==1.0* than *success==0.0*). We store the result into a CSV file.
 
 # Data Exploration
 
