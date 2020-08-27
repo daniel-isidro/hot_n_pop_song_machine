@@ -169,7 +169,11 @@ At the end we merge all data frames into one final CSV file, that contains **all
 
 Now we take the resulting data frame on the previous step, **remove all songs older than 2000** (as older hit songs may not predict future hits since people's preferences change over time), remove duplicates and clean artist and title names with regular expressions.
 
-Then we use **spotipy** Python library to call Spotify Web API and get the audio features of those hit songs. Finally we add a column, **success**, with value 1.0 in all rows, that will serve us in the modeling phase of the project.
+Then we use **spotipy** Python library to call the **Spotify Web API** and get the audio features of those hit songs.
+
+![Spotify Web API](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/spotify_web_api.png)
+
+Finally we add a column, **success**, with value 1.0 in all rows, that will serve us in the modeling phase of the project.
 
 The resulting data frame has around **8,000 entries**. We store the result into a CSV file.
 
