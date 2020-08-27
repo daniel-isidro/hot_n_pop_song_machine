@@ -187,7 +187,13 @@ The resulting data frame has around **9,500 entries**. We store the result into 
 
 # Data Preparation
 
-In this section we **combine both datasets** (hit songs and not-hit songs), into one data frame, remove duplicates and nulls, and **remove the exceeding not-hit songs** so we get a balanced dataset (same number of rows with *success==1.0* than with *success==0.0*). We store the result into a CSV file.
+In this section we **combine both datasets** (hit songs and not-hit songs), into one data frame, remove duplicates and nulls, and **remove the exceeding not-hit songs** so we get a balanced dataset (same number of rows with *success==1.0* than with *success==0.0*).
+
+The result is a data frame with around **15,700 entries**.
+
+![Data Prep](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dataprep.png)
+
+We store the result into a CSV file.
 
 # Data Exploration
 
