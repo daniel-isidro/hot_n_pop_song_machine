@@ -2,7 +2,7 @@
 
 Repository for the **Hot'n'Pop Song Machine** project, a Machine Learning song popularity predictor,
 
-The Github repository of the **front-end web app** of the project, that uses the Streamlit app framework and web hosting on Heroku, can be found at https://github.com/daniel-isidro/heroku_hot_n_pop.
+The Github repository of the **front-end web app** of the project, that uses the Streamlit app framework and web hosting on Heroku, can be found **[here]( https://github.com/daniel-isidro/heroku_hot_n_pop)**.
 
 You can play with a live demo of the web app **[here](https://hot-n-pop-song-machine.herokuapp.com)**.
 
@@ -32,29 +32,22 @@ Any previous related work/state of the art
 
 # Requirements
 
-Anaconda virtual environment with Python 3.7.7 and the following libraries/packages:
+Anaconda virtual environment with Python 3.7.7 or higher and the following libraries/packages:
 
-### Python libraries
+### Anaconda Python packages
 
-```bs4```
-```datetime```
-```json```
-```math```
-```matplotlib```
-```numpy```
-```os```
-```pandas```
-```pickle```
-```random```
-```re```
-```requests```
-```scipy```
-```seaborn```
-```sklearn```
-```spotipy```
-```string```
-```time```
-```xgboost```
+```beautifulsoup4``` <br>
+```jsonschema``` <br>
+```matplotlib``` <br>
+```numpy``` <br>
+```pandas``` <br>
+```random``` <br>
+```requests``` <br>
+```scipy``` <br>
+```seaborn``` <br>
+```scikit-learn``` <br>
+```spotipy``` <br>
+```xgboost``` <br>
 
 For avoiding future compatibility issues, here are the versions of the key libraries used:
 
@@ -128,7 +121,7 @@ Using the pickled model to make predictions on new songs.
 
 ### Refining the model
 
-If you also want to replicate the second part of the project, where we explore using an unbalanced dataset and retrain the model to improve the metrics, please execute the following Jupyter notebooks in the specified order.
+If you also want to replicate the second part of the project, where we explore using an unbalanced dataset, getting more samples of not-hit songs, and retrain the model to try improving the metrics, please execute the following Jupyter notebooks in the specified order.
 
 8. [Get more random not-hit songs](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/spotify_api/get_audio_features_more_not_hit_songs.ipynb)
 
