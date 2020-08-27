@@ -119,7 +119,7 @@ Using the pickled model to make predictions on new songs.
 
 ### Refining the model
 
-If you also want to replicate the second part of the project, where we explore using an unbalanced dataset, getting more samples of not-hit songs, and retrain the model to try improving the metrics, please execute the following Jupyter notebooks in the specified order.
+If you also want to replicate the second part of the project, where we explore using an **unbalanced dataset**, getting more samples of not-hit songs, and **retrain** the model to try **improving the metrics**, please execute the following Jupyter notebooks in the specified order.
 
 8. [Get more random not-hit songs](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/spotify_api/get_audio_features_more_not_hit_songs.ipynb)
 
@@ -153,7 +153,9 @@ ML techniques, statistical methodologies
 
 ### Web Scraping
 
-For getting all Billboard 100 US weekly hit songs and artist names from 1962 till 2020, we will do **web scraping** on the [Ultimate Music Database](http://umdmusic.com/default.asp?Lang=English&Chart=D) website.
+![Billboard](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/billboard.png)
+
+For getting all the **Billboard 100** weekly hit songs and artist names in the United States, from 1962 till 2020, we perform **web scraping** on the [Ultimate Music Database](http://umdmusic.com/default.asp?Lang=English&Chart=D) website.
 
 We use **BeautifulSoup4** as our Python library tool for scraping the web.
 
@@ -161,7 +163,7 @@ The result is a data frame with three columns: **year, artist, and title**. Then
 
 We do **several scraping passes** on the website, covering just one or two decades, to avoid being kicked by the website.
 
-At the end we merge all data frames into one final CSV file, that contains **all hit titles from 1962 until late June 2020**.
+At the end we merge all data frames into one final CSV file, that contains **all hit titles** from **1962** until **late June 2020**.
 
 ### Spotify Web API
 
