@@ -171,7 +171,7 @@ Now we take the resulting data frame on the previous step, **remove all songs ol
 
 Then we use **spotipy** Python library to call the **Spotify Web API** and get the audio features of those hit songs.
 
-![Spotify Web API](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/spotify_web_api.png)
+<img src="https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/spotify_web_api.png" width="300">
 
 Finally we add a column, **success**, with value 1.0 in all rows, that will serve us in the modeling phase of the project.
 
