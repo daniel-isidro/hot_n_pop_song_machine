@@ -157,25 +157,37 @@ For getting all Billboard 100 US weekly hit songs and artist names from 1962 til
 
 We use **BeautifulSoup4** as our Python library tool for scraping the web.
 
-The result is a data frame with three columns: year, artist, and title. Then we save the data frame into a CSV file.
+The result is a data frame with three columns: **year, artist, and title**. Then we save the data frame into a CSV file.
 
-We do several scraping passes on the website, covering just one or two decades, to avoid being kicked by the website.
+We do **several scraping passes** on the website, covering just one or two decades, to avoid being kicked by the website.
 
-At the end we merge all data frames into one final CSV file, getting all hit titles from 1962 until late June 2020.
+At the end we merge all data frames into one final CSV file, that contains **all hit titles from 1962 until late June 2020**.
 
 ### Spotify Web API
 
 **Hit Songs**
 
-Now we take the resulting data frame on the previous step, **remove all songs older than 2000** (as older hit songs may not predict future hits since people's preferences change over time), remove duplicates and clean artist and title names with regular expressions. Then we use **spotipy** Python library to call Spotify Web API and get the audio features of those hit songs. Finally we add a column, **success**, with value 1.0 in all rows, that will serve us in the modeling phase of the project. The resulting data frame has around 8,000 entries.
+Now we take the resulting data frame on the previous step, **remove all songs older than 2000** (as older hit songs may not predict future hits since people's preferences change over time), remove duplicates and clean artist and title names with regular expressions.
+
+Then we use **spotipy** Python library to call Spotify Web API and get the audio features of those hit songs. Finally we add a column, **success**, with value 1.0 in all rows, that will serve us in the modeling phase of the project.
+
+The resulting data frame has around **8,000 entries**. We store the result into a CSV file.
 
 **Not-hit Songs**
 
-As Machine learning models usually perform better with **balanced datasets**, we will need to get other 8,000 not-hit songs that exist in the Spotify catalog. So we create a **function** that generates around 10,000 **pseudo-random songs** to balance the hit/not-hit songs dataset. We specify that the year range of those random songs as the same one as the selected for hit songs: from 2000 until 2020. We put the results on a data frame, then we remove duplicates and nulls, and we add a column, **success**, with value 0.0 in all rows, that will serve us in the modeling phase of the project. The resulting data frame has around 9,500 entries.
+As Machine learning models usually **perform better** with **balanced datasets**, we will need to get other 8,000 not-hit songs that exist in the Spotify catalog.
+
+So we create a **function** that generates around 10,000 **pseudo-random songs** to balance the hit/not-hit songs dataset.
+
+We specify that the **year range** of those random songs as the same one as the selected for hit songs: from **2000** to **2020**.
+
+We put the results on a data frame, then we remove duplicates and nulls, and we add a column, **success**, with value 0.0 in all rows, that will serve us in the modeling phase of the project.
+
+The resulting data frame has around **9,500 entries**. We store the result into a CSV file.
 
 # Data Preparation
 
-In this section we **combine both datasets** (hit songs and not-hit songs), into one data frame, remove duplicates and nulls, and **remove the exceeding not-hit songs** so we get a balanced dataset (same number of rows with *success==1.0* than *success==0.0*). We store the result into a CSV file.
+In this section we **combine both datasets** (hit songs and not-hit songs), into one data frame, remove duplicates and nulls, and **remove the exceeding not-hit songs** so we get a balanced dataset (same number of rows with *success==1.0* than with *success==0.0*). We store the result into a CSV file.
 
 # Data Exploration
 
