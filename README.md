@@ -32,6 +32,8 @@ Any previous related work/state of the art
 
 # Requirements
 
+Anaconda virtual environment with Python 3.7.7 and the following libraries/packages:
+
 ### Python libraries
 
 ```bs4```
@@ -50,17 +52,18 @@ Any previous related work/state of the art
 ```seaborn```
 ```sklearn```
 ```spotipy```
-```streamlit```
 ```string```
 ```time```
 ```xgboost```
 
-```jsonschema==3.2.0
+For avoiding future compatibility issues, here are the versions of the key libraries used:
+
+```
+jsonschema==3.2.0
 numpy==1.18.1
 pandas==1.0.3
 scikit-learn==0.22.1
 spotipy==2.12.0
-streamlit==0.64.0
 xgboost==0.90
 ```
 
@@ -79,9 +82,9 @@ You'll need a Spotify account (free or paid) to be able to use their web API, an
 * **Client ID** is the unique identifier of your application.
 * **Client Secret** is the key that you pass in secure calls to the Spotify Accounts and Web API services. Always store the client secret key securely; never reveal it publicly! If you suspect that the secret key has been compromised, regenerate it immediately by clicking the link on the edit settings view.
 
-### 'settings.env' file
+### *settings.env* file
 
-In order to not upload your Spotify Client ID and Client Secret tokens to Github, you can create a **.env text file** and place it into your local Github repository. Create a **.gitignore** file at the root folder of your project so the .env file is not uploaded to the remote repository. The content of the .env text file should look like this:
+In order to not uploading your Spotify Client ID and Client Secret tokens to Github, you can create a **.env text file** and place it into your local Github repository. Create a **.gitignore** file at the root folder of your project so the .env file is not uploaded to the remote repository. The content of the .env text file should look like this:
 
 ```
   {
@@ -96,20 +99,56 @@ In order to not upload your Spotify Client ID and Client Secret tokens to Github
 For replicating the project, please execute the following Jupyter notebooks in the specified order.
 
 1. [Web scraping](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/web_scraping/ultimate_music_database_web_scraping.ipynb)
+
+Getting Billboard 100 US weekly hit songs and artist names from 1962 till 2020 from Ultimate Music Database website.
+
 2. [Get audio features from hit songs](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/spotify_api/get_audio_features_hit_songs.ipynb)
+
+Getting audio features from those hit songs, restricted to years 2000-2020, from Spotify web API.
+
 3. [Get audio features from random not-hit songs](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/spotify_api/get_audio_features_not_hit_songs.ipynb)
+
+Randomly generating 10,000 not-hit songs from years 2000-2020 and getting their audio features from Spotify web API.
+
 4. [Data preparation](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/data_prep/data_prep.ipynb)
+
+Merging both datasets, hit songs and not hit songs.
+
 5. [Data exploration](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/data_exploration/feature_selection_and_data_visualization.ipynb)
+
+Data visualization and feature selection.
+
 6. [ML model selection](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/modeling/modeling.ipynb)
+
+Machine learning models analysis and metrics evaluation, resulting in a balanced dataset. Result is a pickled model.
+
 7. [Prediction](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/modeling/model_predict.ipynb)
 
-If you also want to replicate the second part of the project, where we explore using an unbalanced dataset and retrain the model, please execute the following Jupyter notebooks in the specified order.
+Using the pickled model to make predictions on new songs.
+
+### Refining the model
+
+If you also want to replicate the second part of the project, where we explore using an unbalanced dataset and retrain the model to improve the metrics, please execute the following Jupyter notebooks in the specified order.
 
 8. [Get more random not-hit songs](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/spotify_api/get_audio_features_more_not_hit_songs.ipynb)
+
+Randomly generating 20,000 more not-hit songs from years 2000-2020, to a total of 30,0000, and getting their audio features from Spotify web API.
+
 9. [Data preparation (unbalanced dataset)](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/data_prep/data_prep_expanded_dataset.ipynb)
+
+Merging both datasets, hit songs and not hit songs. Now resulting on an unbalanced dataset, aprox. 3:1 not-hit to hit songs.
+
 10. [Data exploration (unbalanced dataset)](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/data_exploration/feature_selection_and_data_visualization_expanded_dataset.ipynb)
+
+Machine learning models analysis and metrics evaluation, now with the expanded unbalanced dataset.
+
 11. [ML model selection (unbalanced dataset)](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/modeling/modeling_expanded_dataset.ipynb)
+
+Machine learning models analysis and metrics evaluation. Result is a second pickled model.
+
 12. [Prediction (unbalanced dataset)](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/modeling/model_predict_expanded_dataset.ipynb)
+
+Using the second pickled model to make predictions on new songs.
 
 # Raw Data Description
 
