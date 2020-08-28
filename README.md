@@ -87,7 +87,7 @@ In order to not uploading your Spotify Client ID and Client Secret tokens to Git
 
 # Execution Guide
 
-For replicating the project, please execute the following Jupyter notebooks in the specified order.
+For replicating the project, please execute the following **Jupyter notebooks** in the specified order.
 
 1. **[Web scraping](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/web_scraping/ultimate_music_database_web_scraping.ipynb)**
 
