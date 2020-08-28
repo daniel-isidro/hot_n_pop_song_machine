@@ -1,4 +1,4 @@
-![logo](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/hnp_logo_wide.png)
+![logo](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/hnp_logo.jpeg)
 
 Repository for the **Hot'n'Pop Song Machine** project, a Machine Learning song popularity predictor,
 
