@@ -201,16 +201,103 @@ We store the result into a CSV file.
 
 ### Raw Data Description
 
-https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/
+**1. First Look**
 
-1. Peek At Your Data
-2. Dimensions of Your Data
-3. Data Types
-4. Class Distribution
-5. Data Summary
-6. Correlations
-7. Skewness
+We have a look at the raw data we got after running steps 1 to 4 on the execution guide above.
 
+![data_head](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/data_head.png)
+
+**2. Dimensions of the Data**
+
+```
+15714 rows × 19 columns
+```
+
+**3. Data Types**
+
+```Python
+data.dtypes
+```
+
+```
+danceability        float64
+energy              float64
+key                 float64
+loudness            float64
+mode                float64
+speechiness         float64
+acousticness        float64
+instrumentalness    float64
+liveness            float64
+valence             float64
+tempo               float64
+type                 object
+id                   object
+uri                  object
+track_href           object
+analysis_url         object
+duration_ms         float64
+time_signature      float64
+success             float64
+dtype: object
+```
+
+We have **14 numerical** and **5 categorical** features.
+
+**4. Class Distribution**
+
+We are working with a balanced dataset by design.
+
+```python
+df[df['success']==1.0].shape
+(7857, 19)
+```
+```python
+df[df['success']==0.0].shape
+(7857, 19)
+```
+
+**5. Data Summary**
+
+```python
+df.describe()
+```
+
+![data_summary](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/data_summary.png)
+
+**6. Correlations**
+
+```Python
+pd.set_option('precision', 3)
+data.corr(method='pearson')
+```
+![data_correlation](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/data_corr.png)
+
+**7. Skewness**
+
+Skew refers to a distribution that is assumed Gaussian (normal or bell curve) that is shifted or squashed in one direction or another. The skew result show a positive (right) or negative (left) skew. Values closer to zero show less skew.
+
+```python
+data.skew()
+```
+
+```
+danceability       -0.757
+energy             -0.296
+key                 0.019
+loudness           -1.215
+mode               -0.699
+speechiness         1.310
+acousticness        0.645
+instrumentalness    2.301
+liveness            1.978
+valence             0.021
+tempo               0.134
+duration_ms         8.900
+time_signature     -2.628
+success             0.000
+dtype: float64
+```
 
 ### Data Visualization
 
@@ -245,6 +332,7 @@ Then you get the **probability** of the song being hot and popular if it was rel
 
 # References
 
+[**Machine Learning Mastery** - Understand Your Machine Learning Data With Descriptive Statistics in Python](https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/)
 
 
 # About Me
