@@ -141,10 +141,6 @@ Machine learning models analysis and metrics evaluation. Result is a second pick
 
 Using the second pickled model to make predictions on new songs.
 
-# Raw Data Description
-
-
-
 # Methodology
 
 ML techniques, statistical methodologies
@@ -202,6 +198,24 @@ The result is a data frame with around **15,700 entries**.
 We store the result into a CSV file.
 
 # Data Exploration
+
+### Raw Data Description
+
+https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/
+
+1. Peek At Your Data
+2. Dimensions of Your Data
+3. Data Types
+4. Class Distribution
+5. Data Summary
+6. Correlations
+7. Skewness
+
+
+### Data Visualization
+
+
+### Feature Selection
 
 
 
