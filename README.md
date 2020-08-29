@@ -95,7 +95,7 @@ Getting Billboard 100 US weekly hit songs and artist names from 1962 till 2020 f
 
 2. **[Get audio features from hit songs](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/spotify_api/get_audio_features_hit_songs.ipynb)**
 
-Getting audio features from those hit songs, restricted to years 2000-2020, from Spotify web API.
+Getting audio features from those hit songs, restricted to years 2000-2020, from Spotify web API, whose response contains an audio features object in JSON format.
 
 3. **[Get audio features from random not-hit songs](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/spotify_api/get_audio_features_not_hit_songs.ipynb)**
 
@@ -191,11 +191,7 @@ The resulting data frame has around **9,500 entries**. We store the result into 
 
 In this section we **combine both datasets** (hit songs and not-hit songs), into one data frame, remove duplicates and nulls, and **remove the exceeding not-hit songs** so we get a balanced dataset (same number of rows with *success==1.0* than with *success==0.0*).
 
-The result is a data frame with around **15,700 entries**.
-
-![Data Prep](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dataprep.png)
-
-We store the result into a CSV file.
+The result is a data frame with around **15,700 entries**. We store the result into a CSV file.
 
 # Data Exploration
 
@@ -338,6 +334,7 @@ Then you get the **probability** of the song being hot and popular if it was rel
 
 # References
 
+[**Spotify for Developers** - Get Audio Features for a Track](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/)
 [**Machine Learning Mastery** - Understand Your Machine Learning Data With Descriptive Statistics in Python](https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/)
 
 
