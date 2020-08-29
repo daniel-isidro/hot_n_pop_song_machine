@@ -329,31 +329,67 @@ dtype: float64
 
 ### Feature Selection
 
+We will perform an analysis on whether we will need to use all features in the modeling steps or we should drops some features. We will use the Random Trees classifier from scikit-learn as a base model.
+
 **1. Feature Selection and Random Forest Classification**
+
+Using the Random Trees classifier, a 70/30 train/test split, 10 estimators, we get an accuracy of 0.905.
 
 ![fs_heatmap1](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_fs_heatmap1.png)
 
+```
+Accuracy is:  0.905408271474019
+```
 
 **2. Univariate feature selection and random forest classification**
+
+We use the modules  ```SelectKBest``` and ```f_classif``` to find the best 5 scored features.
 
 ![feat_scores](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_scores.png)
 
 **3. Recursive feature elimination (RFE) with random forest**
 
+```
+Chosen best 5 feature by rfe:
+Index(['energy', 'loudness', 'speechiness', 'acousticness', 'duration_ms'], dtype='object')
+```
+Then we retrain the Random Forest model with only those 5 features.
+
 ![fs_heatmap2](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_fs_heatmap2.png)
 
+```
+Accuracy is:  0.8835630965005302
+```
+
+Accuracy drops to 0.884 with only those 5 selected features.
 
 **4. Recursive feature elimination with cross validation and random forest classification**
 
+Now using the module ```RFECV```from ```sklearn.feature_selection``` we will not only find the best features but we'll also find how many features do we need for best accuracy.
+
 ![feat_sel](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_sel.png)
 
+```Optimal number of features : 13
+Best features : Index(['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms', 'time_signature'], dtype='object')
+```
+
+
+
  **5. Tree based feature selection and random forest classification**
+
+ If our would purpose would be actually not finding good accuracy, but learning how to make feature selection and understanding data, then we could use another feature selection method.
+
+ In the Random Forest classification method there is a ```feature_importances_``` attribute that is the feature importances (the higher, the more important the feature).
 
  ![feat_importance](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feature_imp.png)
 
  **Feature Extraction**
 
+ We will use principle component analysis (PCA) for feature extraction. Before PCA, we need to normalize data for better performance of PCA.
+
  ![feat_extraction](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_ext.png)
+
+ According to variance ratio, 5 components (0 to 4) can be chosen.
 
 # Analysis
 
@@ -382,7 +418,9 @@ Then you get the **probability** of the song being hot and popular if it was rel
 # References
 
 [**Spotify for Developers** - Get Audio Features for a Track](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/)
+
 [**scikit-learn** - Machine Learning in Python](https://scikit-learn.org/stable/index.html)
+
 [**Machine Learning Mastery** - Understand Your Machine Learning Data With Descriptive Statistics in Python](https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/)
 
 
