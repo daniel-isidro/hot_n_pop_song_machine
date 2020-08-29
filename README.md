@@ -205,9 +205,15 @@ We store the result into a CSV file.
 
 We have a look at the raw data we got after running steps 1 to 4 on the execution guide above.
 
-![data_head](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/data_head.png)
+![data_head1](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/data_head1.png)
+
+![data_head2](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/data_head2.png)
 
 **2. Dimensions of the Data**
+
+```Python
+data.shape
+```
 
 ```
 15714 rows × 19 columns
