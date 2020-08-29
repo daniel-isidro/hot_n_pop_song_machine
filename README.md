@@ -329,13 +329,31 @@ dtype: float64
 
 ### Feature Selection
 
-**Univariate feature selection and random forest classification**
+**1. Feature Selection and Random Forest Classification**
+
+![fs_heatmap1](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_fs_heatmap1.png)
+
+
+**2. Univariate feature selection and random forest classification**
 
 ![feat_scores](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_scores.png)
 
-**Recursive feature elimination with cross validation and random forest classification**
+**3. Recursive feature elimination (RFE) with random forest**
+
+![fs_heatmap2](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_fs_heatmap2.png)
+
+
+**4. Recursive feature elimination with cross validation and random forest classification**
 
 ![feat_sel](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_sel.png)
+
+ **5. Tree based feature selection and random forest classification**
+
+ ![feat_importance](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feature_imp.png)
+
+ **Feature Extraction**
+
+ ![feat_extraction](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_ext.png)
 
 # Analysis
 
@@ -364,6 +382,7 @@ Then you get the **probability** of the song being hot and popular if it was rel
 # References
 
 [**Spotify for Developers** - Get Audio Features for a Track](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/)
+[**scikit-learn** - Machine Learning in Python](https://scikit-learn.org/stable/index.html)
 [**Machine Learning Mastery** - Understand Your Machine Learning Data With Descriptive Statistics in Python](https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/)
 
 
