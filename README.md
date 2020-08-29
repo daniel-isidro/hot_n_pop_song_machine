@@ -303,10 +303,39 @@ dtype: float64
 
 ### Data Visualization
 
+![bal_classes](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_bal_classes.png)
+
+![boxplot](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_boxplot.png)
+
+**Univariate Analysis: Numerical Variables**
+
+![univar_num](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_univar_num.png)
+
+**Univariate Analysis: Categorical Variables**
+
+![univar_cat](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_univar_cat.png)
+
+**Multivariate Analysis: Two Numerical Variables**
+
+![multivar_cat](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_multivar_num.png)
+
+**Multivariate Analysis: Two Categorical Variables**
+
+![multivar_cat](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_multivar_cat.png)
+
+**Correlation Heatmap**
+
+![heatmap](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_heatmap.png)
 
 ### Feature Selection
 
+**Univariate feature selection and random forest classification**
 
+![feat_scores](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_scores.png)
+
+**Recursive feature elimination with cross validation and random forest classification**
+
+![feat_sel](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_sel.png)
 
 # Analysis
 
