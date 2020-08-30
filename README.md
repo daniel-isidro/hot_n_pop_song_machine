@@ -360,10 +360,10 @@ Correlation Heatmap
 
 ![heatmap](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_heatmap.png)
 
-**Take Outs**
+**Notes of Interest**
 
 * We are working with a **balanced dataset** (by design).
-* A lot of outliers in the **duration_ms** feature of the not-hit songs.
+* There is a lot of outliers in the **duration_ms** feature of the not-hit songs.
 * Hit songs have **higher danceability, energy, loudness** than not-hit songs.
 * Hit songs have **lower speechiness, acousticness, instrumentalness, liveness** than not-hit songs.
 * Hit songs have **similar levels** of **key, mode, valence, tempo** than not-hit songs.
