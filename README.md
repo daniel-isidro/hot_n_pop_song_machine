@@ -459,6 +459,8 @@ In the model analysis, `GridSearchCV` will be incorporated to the pipeline at so
 
 ### Metrics
 
+<small>
+
 Algorithm | Num. Transf. | Cat. Transf. | Accuracy | AUC | Logloss
 ---|---|---|---|---|---|
 Logistic Regression | StandardScaler() | OneHotEncoder() (drop first) | 0.883 | 94.60 % | 4.06
@@ -474,6 +476,8 @@ Random Forest | RobustScaler() | OneHotEncoder() | 0.892 | 94.72 % | 3.71
 XGBoost | RobustScaler() | OneHotEncoder() (drop first) | 0.906 | 95.53 % | 3.23
 XGBoost (dropped `energy`) | RobustScaler() | OneHotEncoder() (drop first) | 0.900 | 95.28 % | 3.45
 XGBoost (removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0.904 | 95.91 % | 3.31
+
+</small>
 
 # Summary
 
@@ -534,6 +538,7 @@ Boxplot after removing the outliers
 
 ![boxplot_removed_outliers](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_boxplot_no_outliers.png)
 
+Finally we **pickled** this last XGBoost model and we used it on the Python script of the front-end web app.
 
 # Conclusions
 
