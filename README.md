@@ -11,10 +11,10 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 [Introduction](#introduction) <br>
 [Requirements](#requirements) <br>
 [Execution Guide](#execution-Guide) <br>
-[Raw Data Description](#raw-data-description) <br>
 [Methodology](#methodology) <br>
 [Data Acquisition](#data-acquisition) <br>
 [Data Preparation](#data-preparation) <br>
+[Raw Data Description](#raw-data-description) <br>
 [Data Exploration](#data-exploration) <br>
 [Analysis](#analysis) <br>
 [Summary](#summary) <br>
@@ -193,11 +193,11 @@ In this section we **combine both datasets** (hit songs and not-hit songs), into
 
 The result is a data frame with around **15,700 entries**. We store the result into a CSV file.
 
-# Data Exploration
+# Raw Data Description
 
 ### Audio Features
 
-Let's have a look on the variables that the audio features JSON object that Spotify Web API gives when searching for a song. From the [Spotify Web API reference guide](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/):
+To get a general understanding of the features we are going to work with, let's have a look on the "audio features" JSON object the Spotify Web API returns when searching for a song. From the [Spotify Web API reference guide](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/):
 
 
 key | type
@@ -221,7 +221,8 @@ key | type
 `uri` <br><small>The Spotify URI for the track.</small> | String
 `valence` <br><small>A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).</small> | Float
 
-### Raw Data Description
+
+### Statistical Description
 
 **1. First Look**
 
@@ -326,6 +327,8 @@ time_signature     -2.628
 success             0.000
 dtype: float64
 ```
+
+# Data Exploration
 
 ### Data Visualization
 
