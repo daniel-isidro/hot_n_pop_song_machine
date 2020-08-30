@@ -367,7 +367,7 @@ Correlation Heatmap
 * Hit songs have **higher danceability, energy, loudness** than not-hit songs.
 * Hit songs have **lower speechiness, acousticness, instrumentalness, liveness** than not-hit songs.
 * Hit songs have **similar levels** of **key, mode, valence, tempo** than not-hit songs.
-* Most hit songs have **low variance speechiness, instrumentalness, duration_ms** and **time_signature**.
+* Most hit songs have **low variance, speechiness, instrumentalness, duration_ms** and **time_signature**.
 * Songs are more or less **equally distributed among all keys**.
 * **Two thirds** of the songs are on the **major mode**.
 * Most of the songs are on the **4 beats by bar** (4/4) time signature.
