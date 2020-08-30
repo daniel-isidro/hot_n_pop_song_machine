@@ -480,9 +480,29 @@ XGBoost (removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0
 
 * We chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder() (dropping the first column)** as our final model.
 
+![AUC]()
+```
+AUC - Test Set: 95.91%
+Logloss: 3.31
+best params:  {'classifier__colsample_bytree': 0.8, 'classifier__gamma': 1, 'classifier__learning_rate': 0.01, 'classifier__max_depth': 5, 'classifier__n_estimators': 1000, 'classifier__subsample': 0.8}
+best score: 0.901
+accuracy score: 0.904
+
+               precision    recall  f1-score   support
+
+         0.0       0.93      0.87      0.90      1550
+         1.0       0.88      0.94      0.91      1593
+
+    accuracy                           0.90      3143
+   macro avg       0.91      0.90      0.90      3143
+weighted avg       0.91      0.90      0.90      3143
+
+
+```
+
 * We performed **feature importance scoring**, where `loudness` had 40% of the significance, and since `energy` had a fairly strong correlation to `loudness` (0.8), we tried improving the metrics retraining our selected model (XGBoost, outliers removed) leaving `energy` out. But the metrics got worse, the model lost predictive power.
 
-* **Removing 650+ outliers** in the training set did seem to help improving a little the metrics. Most of the outliers came from the random non-hit songs, feature 'duration_ms'. Removing the outliers, which were valid measures and not coming from errors, decreased a little the negatives precision but **improved the negatives recall**. It also **improved the positives precision**, and did not change the positives recall.
+* **Removing 650+ outliers** in the training set did seem to help improving a little the metrics. Most of the outliers came from the random non-hit songs, feature `duration_ms`. Removing the outliers, which were valid measures and not coming from errors, decreased a little the negatives precision but **improved the negatives recall**. It also **improved the positives precision**, and did not change the positives recall.
 
 XGBoost metrics before removing the outliers:
 
@@ -512,7 +532,7 @@ weighted avg    0.91      0.90      0.90      3143
 
 Boxplot after removing the outliers
 
-![boxplot_removed_outliers]()
+![boxplot_removed_outliers](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_boxplot_no_outliers.png)
 
 # Summary
 
