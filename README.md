@@ -420,8 +420,6 @@ Now using the module ```RFECV```from ```sklearn.feature_selection``` we will not
 Best features : Index(['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms', 'time_signature'], dtype='object')
 ```
 
-
-
  **5. Tree based feature selection and random forest classification**
 
  If our would purpose would be actually not finding good accuracy, but learning how to make feature selection and understanding data, then we could use another feature selection method.
@@ -441,6 +439,7 @@ Best features : Index(['danceability', 'energy', 'key', 'loudness', 'mode', 'spe
 # Modeling
 
 We will use several ML Classifiers algorithms, mostly from `scikit-learn`:
+
 * Logistic Regression
 * K-nearest Neighbors
 * Support Vector Columns
@@ -476,15 +475,18 @@ XGBoost | RobustScaler() | OneHotEncoder() (drop first) | 0.906 | 95.53 % | 3.23
 XGBoost (dropped `energy`) | RobustScaler() | OneHotEncoder() (drop first) | 0.900 | 95.28 % | 3.45
 XGBoost (removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0.904 | 95.91 % | 3.31
 
-**Notes of Interest**
+# Summary
 
-* We chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder() (dropping the first column)** as our final model.
+* We chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder() (dropping the first column)** as our final prediction model.
 
-![AUC]()
+![AUC](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_auc.png)
+
 ```
 AUC - Test Set: 95.91%
 Logloss: 3.31
-best params:  {'classifier__colsample_bytree': 0.8, 'classifier__gamma': 1, 'classifier__learning_rate': 0.01, 'classifier__max_depth': 5, 'classifier__n_estimators': 1000, 'classifier__subsample': 0.8}
+best params:  {'classifier__colsample_bytree': 0.8, 'classifier__gamma': 1,
+   'classifier__learning_rate': 0.01, 'classifier__max_depth': 5,
+   'classifier__n_estimators': 1000, 'classifier__subsample': 0.8}
 best score: 0.901
 accuracy score: 0.904
 
@@ -496,8 +498,6 @@ accuracy score: 0.904
     accuracy                           0.90      3143
    macro avg       0.91      0.90      0.90      3143
 weighted avg       0.91      0.90      0.90      3143
-
-
 ```
 
 * We performed **feature importance scoring**, where `loudness` had 40% of the significance, and since `energy` had a fairly strong correlation to `loudness` (0.8), we tried improving the metrics retraining our selected model (XGBoost, outliers removed) leaving `energy` out. But the metrics got worse, the model lost predictive power.
@@ -534,9 +534,6 @@ Boxplot after removing the outliers
 
 ![boxplot_removed_outliers](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_boxplot_no_outliers.png)
 
-# Summary
-
-Main results
 
 # Conclusions
 
