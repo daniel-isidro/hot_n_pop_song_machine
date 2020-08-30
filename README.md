@@ -18,8 +18,8 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 [Data Exploration](#data-exploration) <br>
 [Modeling](#modeling) <br>
 [Summary](#summary) <br>
-[Conclusions](#conclusions) <br>
 [Front-end](#front-end) <br>
+[Conclusions](#conclusions) <br>
 [References](#references) <br>
 [About Me](#about-me)
 
@@ -430,11 +430,11 @@ Best features : Index(['danceability', 'energy', 'key', 'loudness', 'mode', 'spe
 
  **Feature Extraction**
 
- We will use principle component analysis (PCA) for feature extraction. Before PCA, we need to normalize data for better performance of PCA.
+ We will evaluate using principle component analysis (PCA) for feature extraction. Before PCA, we need to normalize data for better performance of PCA.
 
  ![feat_extraction](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_ext.png)
 
- According to variance ratio, 5 components (0 to 4) can be chosen.
+ According to variance ratio, 5 components (0 to 4) could be chosen to be significant. But later we will evaluate whether it's worthy to drop features on this project, which does not have so many, and potentially lose predictive power.
 
 # Modeling
 
@@ -570,10 +570,6 @@ XGBoost metrics with **unbalanced** dataset:
 weighted avg       0.90      0.90      0.90      6708
 ```
 
-# Conclusions
-
-Not a summary of the work. The problem was relevant, now with your work, what can you say about how the problem is solved?
-
 # Front-end
 
 The Github repository of the **front-end web app** of the project, that uses the **Streamlit** app framework and web hosting on **Heroku**, can be found **[here](https://github.com/daniel-isidro/heroku_hot_n_pop)**. Please visit this repository for further explanation.
@@ -585,6 +581,10 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 ![web_app](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/web_app.png)
 
 Then you get the **probability** of the song being hot and popular if it was released today, and below you can play an **audio sample** of the song and see the **cover** of the corresponding album (NOTE: some tracks do not include an audio sample due to copyright reasons).
+
+# Conclusions
+
+Not a summary of the work. The problem was relevant, now with your work, what can you say about how the problem is solved?
 
 # References
 
