@@ -16,7 +16,7 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 [Data Preparation](#data-preparation) <br>
 [Raw Data Description](#raw-data-description) <br>
 [Data Exploration](#data-exploration) <br>
-[Analysis](#analysis) <br>
+[Modeling](#modeling) <br>
 [Summary](#summary) <br>
 [Conclusions](#conclusions) <br>
 [Front-end](#front-end) <br>
@@ -438,9 +438,81 @@ Best features : Index(['danceability', 'energy', 'key', 'loudness', 'mode', 'spe
 
  According to variance ratio, 5 components (0 to 4) can be chosen.
 
-# Analysis
+# Modeling
 
+We will use several ML Classifiers algorithms, mostly from `scikit-learn`:
+* Logistic Regression
+* K-nearest Neighbors
+* Support Vector Columns
+* Decision Tree
+* Random Forest
+* XGBoost
 
+We will employ **pipelines** to perform several transformations to the columns and the ML training in one pass. We will transform the columns with **standardization** (for the numerical columns) and **one-hot encoding** (for the categorical columns).
+
+We will use **Logistic Regression** as the **base model**.
+
+For **standardization** we'll use `RobustScaler()` (which is more robust to outliers than other transformations), except when using algorithms involving trees (that are usually immune to outliers), where we'll use `StandardScaler()`.
+
+For **column encoding** we'll mostly use `OneHotEncoder()`, testing if removing the first labeled column (to avoid collinearity) improves the metrics. We'll also test `OrdinalEncoder()` out of curiosity.
+
+In the model analysis, `GridSearchCV` will be incorporated to the pipeline at some point and will be very useful to help us find the **optimal algorithm parameters**.
+
+### Metrics
+
+Algorithm | Num. Transf. | Cat. Transf. | Accuracy | AUC | Logloss
+---|---|---|---|---|---|
+Logistic Regression | StandardScaler() | OneHotEncoder() (drop first) | 0.883 | 94.60 % | 4.06
+Logistic Regression | StandardScaler() | OneHotEncoder() | 0.883 | 94.10 % | 4.03
+Logistic Regression | RobustScaler() | OneHotEncoder() (drop first) | 0.882 | 94.02 % | 4.09
+Logistic Regression | RobustScaler() | OneHotEncoder() | 0.875 | 93.49 % | 4.33
+Logistic Regression | StandardScaler() | OrdinalEncoder() | 0.879 | 94.01 % | 4.19
+K-nearest Neighbors, n=10 | RobustScaler() | OneHotEncoder() (drop first) | 0.890 | 93.74 % | 3.81
+K-nearest Neighbors, GridSearchCV | RobustScaler() | OneHotEncoder() (drop first) | 0.884 | 93.18 % | 4.01
+SVC | RobustScaler() | OneHotEncoder() (drop first) | 0.884 | - | 4.00
+Decision Tree | RobustScaler() | OneHotEncoder() | 0.882 | 92.67 % | 4.08
+Random Forest | RobustScaler() | OneHotEncoder() | 0.892 | 94.72 % | 3.71
+XGBoost | RobustScaler() | OneHotEncoder() (drop first) | 0.906 | 95.53 % | 3.23
+XGBoost (dropped `energy`) | RobustScaler() | OneHotEncoder() (drop first) | 0.900 | 95.28 % | 3.45
+XGBoost (removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0.904 | 95.91 % | 3.31
+
+**Notes of Interest**
+
+* We chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder() (dropping the first column)** as our final model.
+
+* We performed **feature importance scoring**, where `loudness` had 40% of the significance, and since `energy` had a fairly strong correlation to `loudness` (0.8), we tried improving the metrics retraining our selected model (XGBoost, outliers removed) leaving `energy` out. But the metrics got worse, the model lost predictive power.
+
+* **Removing 650+ outliers** in the training set did seem to help improving a little the metrics. Most of the outliers came from the random non-hit songs, feature 'duration_ms'. Removing the outliers, which were valid measures and not coming from errors, decreased a little the negatives precision but **improved the negatives recall**. It also **improved the positives precision**, and did not change the positives recall.
+
+XGBoost metrics before removing the outliers:
+
+```
+            precision    recall  f1-score   support
+
+0.0             0.94      0.86      0.90      1601
+1.0             0.86      0.94      0.90      1542
+
+accuracy                            0.90      3143
+macro avg       0.90      0.90      0.90      3143
+weighted avg    0.90      0.90      0.90      3143
+```
+
+XGBoost metrics after removing the outliers:
+
+```
+            precision    recall  f1-score   support
+
+0.0             0.93      0.87      0.90      1550
+1.0             0.88      0.94      0.91      1593
+
+accuracy                            0.90      3143
+macro avg       0.91      0.90      0.90      3143
+weighted avg    0.91      0.90      0.90      3143
+```  
+
+Boxplot after removing the outliers
+
+![boxplot_removed_outliers]()
 
 # Summary
 
