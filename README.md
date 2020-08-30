@@ -332,29 +332,47 @@ dtype: float64
 
 ### Data Visualization
 
+Target Countplot
+
 ![bal_classes](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_bal_classes.png)
+
+Boxplot
 
 ![boxplot](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_boxplot.png)
 
-**Univariate Analysis: Numerical Variables**
+Univariate Analysis: Numerical Variables
 
 ![univar_num](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_univar_num.png)
 
-**Univariate Analysis: Categorical Variables**
+Univariate Analysis: Categorical Variables
 
 ![univar_cat](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_univar_cat.png)
 
-**Multivariate Analysis: Two Numerical Variables**
+Multivariate Analysis: Two Numerical Variables
 
 ![multivar_cat](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_multivar_num.png)
 
-**Multivariate Analysis: Two Categorical Variables**
+Multivariate Analysis: Two Categorical Variables
 
 ![multivar_cat](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_multivar_cat.png)
 
-**Correlation Heatmap**
+Correlation Heatmap
 
 ![heatmap](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_heatmap.png)
+
+**Take Outs**
+
+* We are working with a **balanced dataset** (by design).
+* A lot of outliers in the **duration_ms** feature of the not-hit songs.
+* Hit songs have **higher danceability, energy, loudness** than not-hit songs.
+* Hit songs have **lower speechiness, acousticness, instrumentalness, liveness** than not-hit songs.
+* Hit songs have **similar levels** of **key, mode, valence, tempo** than not-hit songs.
+* Most hit songs have **low variance speechiness, instrumentalness, duration_ms** and **time_signature**.
+* Songs are more or less **equally distributed among all keys**.
+* **Two thirds** of the songs are on the **major mode**.
+* Most of the songs are on the **4 beats by bar** (4/4) time signature.
+* **Energy** and **loudness** have a **fairly strong correlation** (0.8).
+* **Energy** and **acousticness** have a **moderate negative correlation** (-0.7).
 
 ### Feature Selection
 
