@@ -461,7 +461,7 @@ In the model analysis, `GridSearchCV` will be incorporated to the pipeline at so
 
 <small>
 
-Algorithm | Num. Transf. | Cat. Transf. | Accuracy | AUC | Logloss
+Algorithm | Numerical Transformer | Categorical Transformer | Accuracy | AUC score | Logloss
 ---|---|---|---|---|---|
 Logistic Regression | StandardScaler() | OneHotEncoder() (drop first) | 0.883 | 94.60 % | 4.06
 Logistic Regression | StandardScaler() | OneHotEncoder() | 0.883 | 94.10 % | 4.03
@@ -481,7 +481,7 @@ XGBoost (removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0
 
 # Summary
 
-* We chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder() (dropping the first column)** as our final prediction model.
+* After all the previuos analysis, we chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder() (dropping the first column), using all features**, as our final prediction model.
 
 ![AUC](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_auc.png)
 
@@ -508,7 +508,7 @@ weighted avg       0.91      0.90      0.90      3143
 
 * **Removing 650+ outliers** in the training set did seem to help improving a little the metrics. Most of the outliers came from the random non-hit songs, feature `duration_ms`. Removing the outliers, which were valid measures and not coming from errors, decreased a little the negatives precision but **improved the negatives recall**. It also **improved the positives precision**, and did not change the positives recall.
 
-XGBoost metrics before removing the outliers:
+XGBoost metrics **before** removing the outliers:
 
 ```
             precision    recall  f1-score   support
@@ -521,7 +521,7 @@ macro avg       0.90      0.90      0.90      3143
 weighted avg    0.90      0.90      0.90      3143
 ```
 
-XGBoost metrics after removing the outliers:
+XGBoost metrics **after** removing the outliers:
 
 ```
             precision    recall  f1-score   support
@@ -539,6 +539,36 @@ Boxplot after removing the outliers
 ![boxplot_removed_outliers](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_boxplot_no_outliers.png)
 
 Finally we **pickled** this last XGBoost model and we used it on the Python script of the front-end web app.
+
+**Bonus - Expanded Dataset**
+
+When we evaluated **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide), and we rerun all steps to get to a final predictive model chosen, we found that the new model with the unbalanced dataset was a little more knowledgeable when predicting negatives than the first selected model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (f1-score dropped to 0.80 from 0.90). We decided to stick to the first XGBoost model, that used a balanced dataset, for our web app.
+
+XGBoost metrics with **balanced** dataset:
+
+```
+            precision    recall  f1-score   support
+
+0.0             0.93      0.87      0.90      1550
+1.0             0.88      0.94      0.91      1593
+
+accuracy                            0.90      3143
+macro avg       0.91      0.90      0.90      3143
+weighted avg    0.91      0.90      0.90      3143
+```
+
+XGBoost metrics with **unbalanced** dataset:
+
+```
+               precision    recall  f1-score   support
+
+         0.0       0.94      0.92      0.93      5095
+         1.0       0.78      0.82      0.80      1613
+
+    accuracy                           0.90      6708
+   macro avg       0.86      0.87      0.87      6708
+weighted avg       0.90      0.90      0.90      6708
+```
 
 # Conclusions
 
