@@ -25,10 +25,21 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 
 # Introduction
 
-What
-Why
-Why is it relevant
-Any previous related work/state of the art
+My idea for this project started when I found out about the existence since 2010 of the **[Million Song Dataset](http://millionsongdataset.com/)**, The Million Song Dataset is a freely-available collection of audio features and metadata for a million contemporary popular music tracks. Since music is one of my passions, it seemed appropriate to base one of my first Data Science projects on this subject. The core of the dataset is the feature analysis and metadata for one million songs, provided by [**The Echo Nest**](http://the.echonest.com). Its creators intended it to perform music identification, recommendation, playlist creation, audio fingerprinting, and analysis for consumers and developers. In 2014 The Echo Nest [was acquired](https://en.wikipedia.org/wiki/The_Echo_Nest) by [**Spotify**](www.spotify.com), which incorporated that song information into their systems.
+
+**Music information retrieval (MIR)** is the interdisciplinary science of retrieving information from music. MIR is a small but growing field of research with many real-world applications. Those involved in MIR may have a background in musicology, psychoacoustics, psychology, academic music study, signal processing, informatics, machine learning, optical music recognition, computational intelligence or some combination of these. MIR applications include:
+
+* Recommender systems
+* Track separation and instrument recognition
+* Automatic music transcription
+* Automatic categorization
+* Music generation
+
+According to the International Federation of the Phonographic Industry (IFPI), for the full year **2019** total revenues for the **global recorded music market** grew by 8.2% to **US$20.2 billion**. Streaming for the first time accounted for more than half (56.1%) of global recorded music revenue. Growth in streaming more than offset a -5.3% decline in physical revenue, a slower rate than 2018.
+
+Being able to **predict** what songs are more susceptible to be popular and stream well is an asset to the music industry, as it can be influential to **music companies** while producing and planning marketing campaigns. Even to **artists** it is beneficial, since they may be able to focus on songs that may be promoted later by the music companies, or more popular amongst the general public.
+
+**State-of-the-art papers** on MRI verse on audio signal processing, music discovery, music emotion recognition, polyphonic music transcription, using Deep Learning tools. Recent papers (2019) on MRI may be found on the [**International Society of Music Information Retrieval** website](http://www.ismir.net/conferences/ismir2019.html).
 
 # Requirements
 
@@ -587,6 +598,8 @@ Then you get the **probability** of the song being hot and popular if it was rel
 Not a summary of the work. The problem was relevant, now with your work, what can you say about how the problem is solved?
 
 # References
+
+[**IFPI - Annual Global Music Report 2019**](https://www.ifpi.org/ifpi-issues-annual-global-music-report/)
 
 [**Spotify for Developers** - Get Audio Features for a Track](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/)
 
