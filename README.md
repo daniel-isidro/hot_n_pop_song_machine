@@ -387,7 +387,7 @@ Correlation Heatmap
 
 ### Feature Selection
 
-We will perform an analysis on whether we will need to use all features in the modeling steps or we should drops some features. We will use the Random Trees classifier from scikit-learn as a base model.
+We will perform an analysis on whether we will need to use all features in the modeling steps or we should drop some features. We will use the Random Trees classifier from scikit-learn as a base model.
 
 **1. Feature Selection and Random Forest Classification**
 
