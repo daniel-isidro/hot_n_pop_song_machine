@@ -1,17 +1,17 @@
 ![logo](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/hnp_logo.jpeg)
 
-Repository for the **Hot'n'Pop Song Machine** project, a Machine Learning song popularity predictor,
+Repository for the **Hot'n'Pop Song Machine** project, a Machine Learning song popularity predictor.
 
 The Github repository of the **front-end web app** of the project, that uses the Streamlit app framework and web hosting on Heroku, can be found **[here]( https://github.com/daniel-isidro/heroku_hot_n_pop)**.
 
 You can play with a live demo of the web app **[here](https://hot-n-pop-song-machine.herokuapp.com)**.
 
-# Contents
+# Table of Contents
 
 [Introduction](#introduction) <br>
+[Methodology](#methodology) <br>
 [Requirements](#requirements) <br>
 [Execution Guide](#execution-Guide) <br>
-[Methodology](#methodology) <br>
 [Data Acquisition](#data-acquisition) <br>
 [Data Preparation](#data-preparation) <br>
 [Raw Data Description](#raw-data-description) <br>
@@ -25,7 +25,7 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 
 # Introduction
 
-My idea for this project started when I found out about the existence since 2010 of the **[Million Song Dataset](http://millionsongdataset.com/)**, The Million Song Dataset is a freely-available collection of audio features and metadata for a million contemporary popular music tracks. Since music is one of my passions, it seemed appropriate to base one of my first Data Science projects on this subject. The core of the dataset is the feature analysis and metadata for one million songs, provided by [**The Echo Nest**](http://the.echonest.com). Its creators intended it to perform music identification, recommendation, playlist creation, audio fingerprinting, and analysis for consumers and developers. In 2014 The Echo Nest [was acquired](https://en.wikipedia.org/wiki/The_Echo_Nest) by [**Spotify**](www.spotify.com), which incorporated that song information into their systems.
+My idea for this project started when I found out about the existence since 2010 of the **[Million Song Dataset](http://millionsongdataset.com/)**, a freely-available collection of **audio features and metadata** for a million contemporary popular music tracks. Since music is one of my passions, it seemed appropriate to base one of my first Data Science projects on this subject. The core of the dataset was provided by the company [**The Echo Nest**](http://the.echonest.com). Its creators intended it to perform music identification, recommendation, playlist creation, audio fingerprinting, and analysis for consumers and developers. In 2014 The Echo Nest [was acquired](https://en.wikipedia.org/wiki/The_Echo_Nest) by [**Spotify**](www.spotify.com), which incorporated that song information into their systems. Now those audio features and metadata are available through the free **Spotify Web API.** Finally I chose to use this API instead of the Million Song Dataset for the project, as it is flexibilty and would teach me on how to work with APIs.
 
 **Music information retrieval (MIR)** is the interdisciplinary science of retrieving information from music. MIR is a small but growing field of research with many real-world applications. Those involved in MIR may have a background in musicology, psychoacoustics, psychology, academic music study, signal processing, informatics, machine learning, optical music recognition, computational intelligence or some combination of these. MIR applications include:
 
@@ -41,11 +41,37 @@ Being able to **predict** what songs are more susceptible to be popular and stre
 
 **State-of-the-art papers** on MRI verse on audio signal processing, music discovery, music emotion recognition, polyphonic music transcription, using Deep Learning tools. Recent papers (2019) on MRI may be found on the [**International Society of Music Information Retrieval** website](http://www.ismir.net/conferences/ismir2019.html).
 
+# Methodology
+
+### Machine Learning Techniques
+
+**Classification**
+
+We will use supervised learning classification methods, starting with the **logistic regression** method as it is the simplest classification model. As we progress, we will use other non-linear classifiers such as **decision trees** and **support vector machines**.
+
+**Ensemble Learning**
+
+We will apply ensemble learning to combine simple models for creating new models with better results than the simple ones. On this we will try **random forests** and **gradient boosted trees**. We'll also apply **feature preprocessing** (scaling, one-hot encoding) through **pipelines**.
+
+**Dimensionality Reduction**
+
+We will evaluate using dimensionality reduction to remove the least important information (sometime redundant columns) from our data set. We will use **Recursive Feature Elimination** (RFE) and **Principal Component Analysis** (PCA) methods.
+
+### Statistical Methodologies
+
+**Predictive Analytics**
+
+Including a variety of techniques such as data mining, data modeling, etc.
+
+**Exploratory Data Analysis (EDA)**
+
+For taking a first view of the data and trying to make some feeling or sense of it.
+
 # Requirements
 
 Anaconda virtual environment with Python 3.7.7 or higher and the following libraries/packages:
 
-### Anaconda Python packages
+### Anaconda Python Packages
 
 * beautifulsoup4
 * jsonschema
@@ -69,7 +95,7 @@ scikit-learn==0.22.1
 spotipy==2.12.0
 xgboost==0.90
 ```
-### Spotify account
+### Spotify Account
 
 You'll need a Spotify account (free or paid) to be able to use their web API, and then register your project as an app. For that, follow the instructions found on the ['Spotify for Developers' guide](https://developer.spotify.com/documentation/general/guides/app-settings/):
 
@@ -128,7 +154,7 @@ Machine learning models analysis and metrics evaluation, using a balanced datase
 
 Using the pickled model to make predictions on new songs.
 
-### Refining the model
+### Refining the Model
 
 If you also want to replicate the second part of the project, where we explore using an **unbalanced dataset**, getting more samples of not-hit songs, and **retrain** the model to try **improving the metrics**, please execute the following Jupyter notebooks in the specified order.
 
@@ -151,10 +177,6 @@ Machine learning models analysis and metrics evaluation. Result is a second pick
 12. **[Prediction (unbalanced dataset)](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/modeling/model_predict_expanded_dataset.ipynb)**
 
 Using the second pickled model to make predictions on new songs.
-
-# Methodology
-
-ML techniques, statistical methodologies
 
 # Data Acquisition
 
@@ -603,9 +625,8 @@ Not a summary of the work. The problem was relevant, now with your work, what ca
 
 [**Spotify for Developers** - Get Audio Features for a Track](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/)
 
-[**scikit-learn** - Machine Learning in Python](https://scikit-learn.org/stable/index.html)
-
 [**Machine Learning Mastery** - Understand Your Machine Learning Data With Descriptive Statistics in Python](https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/)
 
+[**scikit-learn** - Machine Learning in Python](https://scikit-learn.org/stable/index.html)
 
 # About Me
