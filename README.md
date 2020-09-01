@@ -614,11 +614,11 @@ macro avg       0.86      0.87      0.87      6708
 weighted avg    0.90      0.90      0.90      6708
 ```
 
-**Cost and optimistic/pessimistic metrics**
+### Cost and Optimistic/Pessimistic Metrics
 
-If we were working for a **music company** and the cost of **failing to predict a not-hit song** was very high, we would use this **second model**. With it the company would may not assign promotion budget to a song with traits of not being popular. It would also be useful to **artists** willing to discard unpopular songs to send to the marketing agencies for promotion.
+If we were working for a **music company** and the **cost of failing to predict a not-hit song** was high, we would use this **second model**. With it the company would may not assign promotion budget to a song with traits of not being popular. It would also be useful to **artists** willing to discard unpopular songs to send to the marketing agencies for promotion.
 
-If we were working for a **music company** competing with others for the rights of potentially successful songs, and the **cost of not predicting a hit song** would be high, or worked for an **artist** planning to send tracks with traits of being hits to music companies for publishing, then we would choose the **first model**.
+If we were working for a **music company** competing with others for the rights of potentially successful songs, and the **cost of not predicting a hit song** was high, or worked for an **artist** planning to send tracks with traits of being hits to music companies for publishing, then we would choose the **first model**.
 
 For our web app we decided to **go back** to the first XGBoost model, that used a balanced dataset, as it gives more uniform predicting results between positives and negatives.
 
