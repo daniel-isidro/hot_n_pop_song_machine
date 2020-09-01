@@ -586,9 +586,9 @@ Finally we **pickled** this last XGBoost model and we used it on the Python scri
 
 ### Bonus - Refining the Model
 
-We tried to refine the model by **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide), so we rerun all steps to get a new final predictive model. We found that this new model with the unbalanced dataset performed better when predicting negatives than the first selected model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (postives f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (negatives f1-score dropped to 0.80 from 0.90).
+We tried to refine the first model by **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide). We rerun all steps with this **unbalanced dataset** to get a new second predictive model. We found that this new model performed better when predicting negatives than the first model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (positives f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (negatives f1-score dropped to 0.80 from 0.90).
 
-XGBoost metrics with **balanced** dataset:
+1st model - XGBoost metrics with **balanced** dataset:
 
 ```
             precision    recall  f1-score   support
@@ -601,7 +601,7 @@ macro avg       0.91      0.90      0.90      3143
 weighted avg    0.91      0.90      0.90      3143
 ```
 
-XGBoost metrics with **unbalanced** dataset:
+2nd model - XGBoost metrics with **unbalanced** dataset:
 
 ```
             precision    recall  f1-score   support
@@ -614,7 +614,13 @@ macro avg       0.86      0.87      0.87      6708
 weighted avg    0.90      0.90      0.90      6708
 ```
 
-Finally we decided to **go back** to the first XGBoost model, that used a balanced dataset, for our web app.
+**Cost and optimistic/pessimistic metrics**
+
+If we were working for a **music company** and the cost of **failing to predict a not-hit song** was very high, we would use this **second model**. With it the company would may not assign promotion budget to a song with traits of not being popular. It would also be useful to **artists** willing to discard unpopular songs to send to the marketing agencies for promotion.
+
+If we were working for a **music company** competing with others for the rights of potentially successful songs, and the **cost of not predicting a hit song** would be high, or worked for an **artist** planning to send tracks with traits of being hits to music companies for publishing, then we would choose the **first model**.
+
+For our web app we decided to **go back** to the first XGBoost model, that used a balanced dataset, as it gives more uniform predicting results between positives and negatives.
 
 # Front-end
 
