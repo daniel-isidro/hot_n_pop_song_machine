@@ -650,4 +650,6 @@ Not a summary of the work. The problem was relevant, now with your work, what ca
 
 [**Model Evaluation Metrics**](https://www.kdnuggets.com/2020/05/model-evaluation-metrics-machine-learning.html)
 
+Kai Middlebrook & Kian Sheik. Song Hit Prediction: Predicting Billboard Hits Using Spotify Data, 2019
+
 # About Me
