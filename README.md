@@ -584,9 +584,9 @@ Boxplot after removing the outliers
 
 Finally we **pickled** this last XGBoost model and we used it on the Python script of the front-end web app.
 
-### Bonus - Expanded Dataset
+### Bonus - Refining the Model
 
-We tried to **refine the model** and **expanded the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide), so we rerun all steps to get a new final predictive model. We found that this new model with the unbalanced dataset performed better when predicting negatives than the first selected model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (postives f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (negatives f1-score dropped to 0.80 from 0.90).
+We tried to refine the model by **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide), so we rerun all steps to get a new final predictive model. We found that this new model with the unbalanced dataset performed better when predicting negatives than the first selected model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (postives f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (negatives f1-score dropped to 0.80 from 0.90).
 
 XGBoost metrics with **balanced** dataset:
 
