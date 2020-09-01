@@ -25,9 +25,9 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 
 # Introduction
 
-My idea for this project started when I found out about the existence since 2010 of the **[Million Song Dataset](http://millionsongdataset.com/)**, a freely-available collection of **audio features and metadata** for a million contemporary popular music tracks. Since music is one of my passions, it seemed appropriate to base one of my first Data Science projects on this subject. The core of the dataset was provided by the company [**The Echo Nest**](http://the.echonest.com). Its creators intended it to perform music identification, recommendation, playlist creation, audio fingerprinting, and analysis for consumers and developers. In 2014 The Echo Nest [was acquired](https://en.wikipedia.org/wiki/The_Echo_Nest) by [**Spotify**](www.spotify.com), which incorporated that song information into their systems. Now those audio features and metadata are available through the free **Spotify Web API.** Finally I chose to use this API instead of the Million Song Dataset for the project, as it is flexibilty and would teach me on how to work with APIs.
+My idea for this project started when I found out about the existence since 2010 of the **[Million Song Dataset](http://millionsongdataset.com/)**, a freely-available collection of **audio features and metadata** for a million contemporary popular music tracks. Since music is one of my passions, it seemed appropriate to base one of my first Data Science projects on this subject. The core of the dataset was provided by the company [**The Echo Nest**](http://the.echonest.com). Its creators intended it to perform music identification, recommendation, playlist creation, audio fingerprinting, and analysis for consumers and developers. In 2014 The Echo Nest [was acquired](https://en.wikipedia.org/wiki/The_Echo_Nest) by [**Spotify**](www.spotify.com), which incorporated that song information into their systems. Now those audio features and metadata are available through the free **Spotify Web API.** Finally I chose to **use this API** instead of the Million Song Dataset for the project, thanks to it is flexibility and my will to practice working with APIs.
 
-**Music information retrieval (MIR)** is the interdisciplinary science of retrieving information from music. MIR is a small but growing field of research with many real-world applications. Those involved in MIR may have a background in musicology, psychoacoustics, psychology, academic music study, signal processing, informatics, machine learning, optical music recognition, computational intelligence or some combination of these. MIR applications include:
+**Music information retrieval (MIR)** is the interdisciplinary science of retrieving information from music. MIR is a small but growing field of research with **many real-world applications**. Those involved in MIR may have a background in musicology, psychoacoustics, psychology, academic music study, signal processing, informatics, machine learning, optical music recognition, computational intelligence or some combination of these. MIR applications include:
 
 * Recommender systems
 * Track separation and instrument recognition
@@ -37,7 +37,7 @@ My idea for this project started when I found out about the existence since 2010
 
 According to the International Federation of the Phonographic Industry (IFPI), for the full year **2019** total revenues for the **global recorded music market** grew by 8.2% to **US$20.2 billion**. Streaming for the first time accounted for more than half (56.1%) of global recorded music revenue. Growth in streaming more than offset a -5.3% decline in physical revenue, a slower rate than 2018.
 
-Being able to **predict** what songs are more susceptible to be popular and stream well is an asset to the music industry, as it can be influential to **music companies** while producing and planning marketing campaigns. Even to **artists** it is beneficial, since they may be able to focus on songs that may be promoted later by the music companies, or more popular amongst the general public.
+Being able to **predict** what songs have the **traits needed** to be popular and stream well is an asset to the music industry, as it can be influential to **music companies** while producing and planning marketing campaigns. Even to **artists** it is beneficial, since they may be able to focus on songs that may be promoted later by the music companies, or more popular amongst the general public.
 
 **State-of-the-art papers** on MRI verse on audio signal processing, music discovery, music emotion recognition, polyphonic music transcription, using Deep Learning tools. Recent papers (2019) on MRI may be found on the [**International Society of Music Information Retrieval** website](http://www.ismir.net/conferences/ismir2019.html).
 
@@ -47,7 +47,7 @@ Being able to **predict** what songs are more susceptible to be popular and stre
 
 **Classification**
 
-We will use supervised learning classification methods, starting with the **logistic regression** method as it is the simplest classification model. As we progress, we will use other non-linear classifiers such as **decision trees** and **support vector machines**.
+On this project we will use supervised learning classification methods, starting with the **logistic regression** method as it is the simplest classification model. As we progress, we will use other non-linear classifiers such as **decision trees** and **support vector machines**.
 
 **Ensemble Learning**
 
@@ -69,7 +69,7 @@ For taking a first view of the data and trying to make some feeling or sense of 
 
 # Requirements
 
-Anaconda virtual environment with Python 3.7.7 or higher and the following libraries/packages:
+We'll use the Anaconda virtual environment with Python 3.7.7 or higher and the following libraries/packages:
 
 ### Anaconda Python Packages
 
@@ -184,7 +184,7 @@ Using the second pickled model to make predictions on new songs.
 
 ![Billboard](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/billboard.png)
 
-For getting all the **Billboard 100** weekly hit songs and artist names in the United States, from 1962 till 2020, we perform **web scraping** on the [Ultimate Music Database](http://umdmusic.com/default.asp?Lang=English&Chart=D) website.
+For getting all the **Billboard 100** weekly hit songs and artist names in the United States, from 1962 till 2020, we perform **web scraping** on the [**Ultimate Music Database**](http://umdmusic.com/default.asp?Lang=English&Chart=D) website. We scrape this web instead of the official [Billboard.com](Billboard.com) as it contains the same data and it is more conveniently formatted (very few ads, no Javascript, no tracking code).
 
 We use **BeautifulSoup4** as our Python library tool for scraping the web.
 
@@ -487,6 +487,8 @@ We will use several ML Classifiers algorithms, mostly from `scikit-learn`:
 * Support Vector Columns
 * Decision Tree
 * Random Forest
+
+Also:
 * XGBoost
 
 We will employ **pipelines** to perform several transformations to the columns and the ML training in one pass. We will transform the columns with **standardization** (for the numerical columns) and **one-hot encoding** (for the categorical columns).
@@ -517,13 +519,13 @@ Decision Tree | RobustScaler() | OneHotEncoder() | 0.882 | 92.67 % | 4.08
 Random Forest | RobustScaler() | OneHotEncoder() | 0.892 | 94.72 % | 3.71
 XGBoost | RobustScaler() | OneHotEncoder() (drop first) | 0.906 | 95.53 % | 3.23
 XGBoost (dropped `energy`) | RobustScaler() | OneHotEncoder() (drop first) | 0.900 | 95.28 % | 3.45
-XGBoost (removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0.904 | 95.91 % | 3.31
+XGBoost (all fetures, removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0.904 | 95.91 % | 3.31
 
 </small>
 
 # Summary
 
-* After all the previuos analysis, we chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder()** (dropping the first column), **using all features**, as our final prediction model.
+* After all the previous analysis, we chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder()** (dropping the first column), **all features**, as our final predictive model.
 
 ![AUC](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_auc.png)
 
@@ -584,7 +586,7 @@ Finally we **pickled** this last XGBoost model and we used it on the Python scri
 
 **Bonus - Expanded Dataset**
 
-When we evaluated **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide), and we rerun all steps to get to a final predictive model chosen, we found that the new model with the unbalanced dataset was a little more knowledgeable when predicting negatives than the first selected model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (f1-score dropped to 0.80 from 0.90). We decided to stick to the first XGBoost model, that used a balanced dataset, for our web app.
+When we evaluated **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide), and we rerun all steps to get to a final predictive model chosen, we found that the new model with the unbalanced dataset performed better when predicting negatives than the first selected model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (f1-score dropped to 0.80 from 0.90).
 
 XGBoost metrics with **balanced** dataset:
 
@@ -611,6 +613,8 @@ XGBoost metrics with **unbalanced** dataset:
    macro avg       0.86      0.87      0.87      6708
 weighted avg       0.90      0.90      0.90      6708
 ```
+
+Finally we decided to **go back** to the first XGBoost model, that used a balanced dataset, for our web app.
 
 # Front-end
 
