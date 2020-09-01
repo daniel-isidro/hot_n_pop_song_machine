@@ -584,9 +584,9 @@ Boxplot after removing the outliers
 
 Finally we **pickled** this last XGBoost model and we used it on the Python script of the front-end web app.
 
-**Bonus - Expanded Dataset**
+### Bonus - Expanded Dataset
 
-When we evaluated **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide), and we rerun all steps to get to a final predictive model chosen, we found that the new model with the unbalanced dataset performed better when predicting negatives than the first selected model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (f1-score dropped to 0.80 from 0.90).
+We tried to **refine the model** and **expanded the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide), so we rerun all steps to get a new final predictive model. We found that this new model with the unbalanced dataset performed better when predicting negatives than the first selected model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (postives f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (negatives f1-score dropped to 0.80 from 0.90).
 
 XGBoost metrics with **balanced** dataset:
 
@@ -604,14 +604,14 @@ weighted avg    0.91      0.90      0.90      3143
 XGBoost metrics with **unbalanced** dataset:
 
 ```
-               precision    recall  f1-score   support
+            precision    recall  f1-score   support
 
-         0.0       0.94      0.92      0.93      5095
-         1.0       0.78      0.82      0.80      1613
+0.0             0.94      0.92      0.93      5095
+1.0             0.78      0.82      0.80      1613
 
-    accuracy                           0.90      6708
-   macro avg       0.86      0.87      0.87      6708
-weighted avg       0.90      0.90      0.90      6708
+accuracy                            0.90      6708
+macro avg       0.86      0.87      0.87      6708
+weighted avg    0.90      0.90      0.90      6708
 ```
 
 Finally we decided to **go back** to the first XGBoost model, that used a balanced dataset, for our web app.
