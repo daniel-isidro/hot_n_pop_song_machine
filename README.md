@@ -186,7 +186,7 @@ Using the second pickled model to make predictions on new songs.
 
 For getting all the **Billboard 100** weekly hit songs and artist names in the United States, from 1962 till 2020, we perform **web scraping** on the [**Ultimate Music Database**](http://umdmusic.com/default.asp?Lang=English&Chart=D) website. We scrape this web instead of the official [Billboard.com](Billboard.com) as it contains the same data and it is more conveniently formatted (very few ads, no Javascript, no tracking code).
 
-We use **BeautifulSoup4** as our Python library tool for scraping the web.
+We use [**BeautifulSoup4**](https://www.crummy.com/software/BeautifulSoup/) as our Python library tool for scraping the web.
 
 The result is a data frame with three columns: **year, artist, and title**. Then we save the data frame into a CSV file.
 
@@ -200,7 +200,7 @@ At the end we merge all data frames into one final CSV file, that contains **all
 
 Now we take the resulting data frame on the previous step, **remove all songs older than 2000** (as older hit songs may not predict future hits since people's preferences change over time), remove duplicates and clean artist and title names with regular expressions (to get better search results).
 
-Then we use **spotipy** Python library to call the **Spotify Web API** and get the audio features of those hit songs.
+Then we use [**spotipy**](https://spotipy.readthedocs.io/) Python library to call the **Spotify Web API** and get the audio features of those hit songs.
 
 <img src="https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/spotify_web_api.png" width="300">
 
@@ -641,5 +641,7 @@ Not a summary of the work. The problem was relevant, now with your work, what ca
 [**Machine Learning Mastery** - Understand Your Machine Learning Data With Descriptive Statistics in Python](https://machinelearningmastery.com/understand-machine-learning-data-descriptive-statistics-python/)
 
 [**scikit-learn** - Machine Learning in Python](https://scikit-learn.org/stable/index.html)
+
+[**Model Evaluation Metrics**](https://www.kdnuggets.com/2020/05/model-evaluation-metrics-machine-learning.html)
 
 # About Me
