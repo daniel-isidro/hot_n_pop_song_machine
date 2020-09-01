@@ -259,7 +259,11 @@ key | type
 
 **1. First Look**
 
-We have a look at the raw data we got after running steps 1 to 4 on the execution guide above.
+We have a look at the raw data we got after running steps 1 to 4 on the execution guide above. Here are the first entries of the dataset.
+
+```Python
+data.head()
+```
 
 ![data_head1](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/data_head1.png)
 
@@ -304,7 +308,7 @@ success             float64
 dtype: object
 ```
 
-We have **14 numerical** and **5 categorical** features.
+Apparently we have **14 numerical** and **5 categorical** features. But later we'll see that `key`, `mode`, `time_signature` and `success` are also categorical.
 
 **4. Class Distribution**
 
@@ -330,9 +334,9 @@ df.describe()
 **6. Correlations**
 
 ```Python
-pd.set_option('precision', 3)
 data.corr(method='pearson')
 ```
+
 ![data_correlation](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/data_corr.png)
 
 **7. Skewness**
@@ -365,31 +369,31 @@ dtype: float64
 
 ### Data Visualization
 
-Target Countplot
+**Target Countplot**
 
 ![bal_classes](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_bal_classes.png)
 
-Boxplot
+**Boxplot**
 
 ![boxplot](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_boxplot.png)
 
-Univariate Analysis: Numerical Variables
+**Univariate Analysis: Numerical Variables**
 
 ![univar_num](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_univar_num.png)
 
-Univariate Analysis: Categorical Variables
+**Univariate Analysis: Categorical Variables**
 
 ![univar_cat](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_univar_cat.png)
 
-Multivariate Analysis: Two Numerical Variables
+**Multivariate Analysis: Two Numerical Variables**
 
 ![multivar_cat](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_multivar_num.png)
 
-Multivariate Analysis: Two Categorical Variables
+**Multivariate Analysis: Two Categorical Variables**
 
 ![multivar_cat](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_multivar_cat.png)
 
-Correlation Heatmap
+**Correlation Heatmap**
 
 ![heatmap](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_heatmap.png)
 
@@ -397,8 +401,8 @@ Correlation Heatmap
 
 * We are working with a **balanced dataset** (by design).
 * There is a lot of outliers in the **duration_ms** feature of the not-hit songs.
-* Hit songs have **higher danceability, energy, loudness** than not-hit songs.
-* Hit songs have **lower speechiness, acousticness, instrumentalness, liveness** than not-hit songs.
+* Hit songs have **higher danceability, energy** and **loudness** than not-hit songs.
+* Hit songs have **lower speechiness, acousticness, instrumentalness** and  **liveness** than not-hit songs.
 * Hit songs have **similar levels** of **key, mode, valence, tempo** than not-hit songs.
 * Most hit songs have **low variance, speechiness, instrumentalness, duration_ms** and **time_signature**.
 * Songs are more or less **equally distributed among all keys**.
@@ -449,9 +453,14 @@ Now using the module ```RFECV```from ```sklearn.feature_selection``` we will not
 
 ![feat_sel](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_sel.png)
 
-```Optimal number of features : 13
-Best features : Index(['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms', 'time_signature'], dtype='object')
 ```
+Optimal number of features : 13
+Best features : Index(['danceability', 'energy', 'key', 'loudness', 'mode',
+   'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence',
+   'tempo', 'duration_ms', 'time_signature'], dtype='object')
+```
+
+It seems we should use **all our features available**.
 
  **5. Tree based feature selection and random forest classification**
 
@@ -467,7 +476,7 @@ Best features : Index(['danceability', 'energy', 'key', 'loudness', 'mode', 'spe
 
  ![feat_extraction](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_feat_ext.png)
 
- According to variance ratio, 5 components (0 to 4) could be chosen to be significant. But later we will evaluate whether it's worthy to drop features on this project, which does not have so many, and potentially lose predictive power.
+ According to variance ratio, 5 components (0 to 4) could be chosen to be the most significant ones. But later we will verify it's **not worthy to drop features on this project**, which does not have so many, and potentially lose predictive power.
 
 # Modeling
 
@@ -514,7 +523,7 @@ XGBoost (removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0
 
 # Summary
 
-* After all the previuos analysis, we chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder() (dropping the first column), using all features**, as our final prediction model.
+* After all the previuos analysis, we chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder()** (dropping the first column), **using all features**, as our final prediction model.
 
 ![AUC](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_auc.png)
 
