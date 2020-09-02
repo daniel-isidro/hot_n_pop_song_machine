@@ -521,7 +521,7 @@ Decision Tree | RobustScaler() | OneHotEncoder() | 0.882 | 92.67 % | 4.08
 Random Forest | RobustScaler() | OneHotEncoder() | 0.892 | 94.72 % | 3.71
 XGBoost | RobustScaler() | OneHotEncoder() (drop first) | 0.906 | 95.53 % | 3.23
 XGBoost (dropped `energy`) | RobustScaler() | OneHotEncoder() (drop first) | 0.900 | 95.28 % | 3.45
-XGBoost (all fetures, removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0.904 | 95.91 % | 3.31
+XGBoost (all features, removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0.904 | 95.91 % | 3.31
 
 </small>
 
