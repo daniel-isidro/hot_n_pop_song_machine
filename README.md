@@ -505,25 +505,7 @@ In the model analysis, `GridSearchCV` will be incorporated to the pipeline at so
 
 ### Metrics
 
-<small>
-
-Algorithm | Numerical Transformer | Categorical Transformer | Accuracy | AUC score | Logloss
----|---|---|---|---|---|
-Logistic Regression | StandardScaler() | OneHotEncoder() (drop first) | 0.883 | 94.60 % | 4.06
-Logistic Regression | StandardScaler() | OneHotEncoder() | 0.883 | 94.10 % | 4.03
-Logistic Regression | RobustScaler() | OneHotEncoder() (drop first) | 0.882 | 94.02 % | 4.09
-Logistic Regression | RobustScaler() | OneHotEncoder() | 0.875 | 93.49 % | 4.33
-Logistic Regression | StandardScaler() | OrdinalEncoder() | 0.879 | 94.01 % | 4.19
-K-nearest Neighbors, n=10 | RobustScaler() | OneHotEncoder() (drop first) | 0.890 | 93.74 % | 3.81
-K-nearest Neighbors, GridSearchCV | RobustScaler() | OneHotEncoder() (drop first) | 0.884 | 93.18 % | 4.01
-SVC | RobustScaler() | OneHotEncoder() (drop first) | 0.884 | 94.64 % | 3.73
-Decision Tree | RobustScaler() | OneHotEncoder() | 0.882 | 92.67 % | 4.08
-Random Forest | RobustScaler() | OneHotEncoder() | 0.892 | 94.72 % | 3.71
-XGBoost | RobustScaler() | OneHotEncoder() (drop first) | 0.906 | 95.53 % | 3.23
-XGBoost (dropped `energy`) | RobustScaler() | OneHotEncoder() (drop first) | 0.900 | 95.28 % | 3.45
-XGBoost (all features, removed outliers) | StandardScaler() | OneHotEncoder() (drop first) | 0.904 | 95.91 % | 3.31
-
-</small>
+![Metrics_Balanced](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/metrics_bal.png)
 
 # Summary
 
@@ -588,7 +570,11 @@ Finally we **pickled** this last XGBoost model and we used it on the Python scri
 
 ### Bonus - Refining the Model
 
-We tried to refine the first model by **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide). We rerun all steps with this **unbalanced dataset** to get a new second predictive model. We found that this new model performed better when predicting negatives than the first model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (positives f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (negatives f1-score dropped to 0.80 from 0.90).
+We tried to refine the first model by **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide). We rerun all steps with this **unbalanced dataset** to get a new second predictive model.
+
+![Metrics](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/metrics.png)
+
+We found that this new model performed better when predicting negatives than the first model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (positives f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (negatives f1-score dropped to 0.80 from 0.90).
 
 1st model - XGBoost metrics with **balanced** dataset:
 
