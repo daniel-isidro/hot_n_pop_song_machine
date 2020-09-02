@@ -574,7 +574,7 @@ We tried to refine the first model by **expanding the original dataset** with 20
 
 ![Metrics](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/metrics.png)
 
-This time, a **Random Forest** model got better metrics, in principle, than the model of the balanced dataset. We found that this new model performed better when predicting negatives than the first model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (positives f1-score up from 0.90 to 0.94). But at the same time the new model **lost a lot of predictive power on the positives** (positives f1-score dropped from 0.91 to 0.80).
+This time, a **Random Forest** model got better metrics, in principle, than the model of the balanced dataset.
 
 1st model - XGBoost metrics with **balanced** dataset:
 
@@ -610,6 +610,8 @@ accuracy score: 0.906
    macro avg       0.86      0.88      0.87      6708
 weighted avg       0.91      0.91      0.91      6708
 ```
+
+We found that this new model performed better when predicting negatives than the first model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (negatives f1-score up from 0.90 to 0.94). But at the same time the new model **lost a lot of predictive power on the positives** (positives f1-score dropped from 0.91 to 0.80).
 
 ### Cost and Optimistic/Pessimistic Metrics
 
