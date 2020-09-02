@@ -509,7 +509,7 @@ In the model analysis, `GridSearchCV` will be incorporated to the pipeline at so
 
 # Summary
 
-* After all the previous analysis, we chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder()** (dropping the first column), **all features**, as our final predictive model.
+* After all the previous analysis, we chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder()** (dropping the first column), **all features**, as our final predictive model, as it performed better in all metrics.
 
 ![AUC](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_auc.png)
 
@@ -532,7 +532,7 @@ accuracy score: 0.904
 weighted avg       0.91      0.90      0.90      3143
 ```
 
-* We performed **feature importance scoring**, where `loudness` had 40% of the significance, and since `energy` had a fairly strong correlation to `loudness` (0.8), we tried improving the metrics retraining our selected model (XGBoost, outliers removed) leaving `energy` out. But the metrics got worse, the model lost predictive power.
+* We did **feature importance scoring**, where `loudness` had 40% of the significance, and since `energy` had a fairly strong correlation to `loudness` (0.8), we tried improving the metrics retraining our selected model (XGBoost, outliers removed) leaving `energy` out. But the metrics got worse, the model lost predictive power.
 
 * **Removing 650+ outliers** in the training set did seem to help improving a little the metrics. Most of the outliers came from the random non-hit songs, feature `duration_ms`. Removing the outliers, which were valid measures and not coming from errors, decreased a little the negatives precision but **improved the negatives recall**. It also **improved the positives precision**, and did not change the positives recall.
 
@@ -574,11 +574,16 @@ We tried to refine the first model by **expanding the original dataset** with 20
 
 ![Metrics](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/metrics.png)
 
-We found that this new model performed better when predicting negatives than the first model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (positives f1-score up from 0.90 to 0.93). But at the same time the new model **lost a lot of predictive power on the positives** (negatives f1-score dropped to 0.80 from 0.90).
+This time, a **Random Forest** model got better metrics, in principle, than the model of the balanced dataset. We found that this new model performed better when predicting negatives than the first model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (positives f1-score up from 0.90 to 0.94). But at the same time the new model **lost a lot of predictive power on the positives** (positives f1-score dropped from 0.91 to 0.80).
 
 1st model - XGBoost metrics with **balanced** dataset:
 
 ```
+AUC - Test Set: 95.67%
+Logloss: 3.43
+accuracy score: 0.901
+
+
             precision    recall  f1-score   support
 
 0.0             0.93      0.87      0.90      1550
@@ -589,22 +594,26 @@ macro avg       0.91      0.90      0.90      3143
 weighted avg    0.91      0.90      0.90      3143
 ```
 
-2nd model - XGBoost metrics with **unbalanced** dataset:
+2nd model - Random Forest metrics with **unbalanced** dataset:
 
 ```
-            precision    recall  f1-score   support
+AUC - Test Set: 96.13%
+Logloss: 3.23
+accuracy score: 0.906
 
-0.0             0.94      0.92      0.93      5095
-1.0             0.78      0.82      0.80      1613
+               precision    recall  f1-score   support
 
-accuracy                            0.90      6708
-macro avg       0.86      0.87      0.87      6708
-weighted avg    0.90      0.90      0.90      6708
+         0.0       0.95      0.93      0.94      5151
+         1.0       0.78      0.83      0.80      1557
+
+    accuracy                           0.91      6708
+   macro avg       0.86      0.88      0.87      6708
+weighted avg       0.91      0.91      0.91      6708
 ```
 
 ### Cost and Optimistic/Pessimistic Metrics
 
-If we were working for a **music company** and the **cost of failing to predict a not-hit song** was high, we would use this **second model**. With it the company would may not assign promotion budget to a song with traits of not being popular. It would also be useful to **artists** willing to discard unpopular songs to send to the marketing agencies for promotion.
+If we were working for a **music company** and the **cost of failing to predict a not-hit song** was high, we would use the **second model**. With it the company would may not assign promotion budget to a song with traits of not being popular. It would also be useful to **artists** willing to discard unpopular songs to send to the marketing agencies for promotion.
 
 If we were working for a **music company** competing with others for the rights of potentially successful songs, and the **cost of not predicting a hit song** was high, or worked for an **artist** planning to send tracks with traits of being hits to music companies for publishing, then we would choose the **first model**.
 
