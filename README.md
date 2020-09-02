@@ -516,7 +516,7 @@ Logistic Regression | RobustScaler() | OneHotEncoder() | 0.875 | 93.49 % | 4.33
 Logistic Regression | StandardScaler() | OrdinalEncoder() | 0.879 | 94.01 % | 4.19
 K-nearest Neighbors, n=10 | RobustScaler() | OneHotEncoder() (drop first) | 0.890 | 93.74 % | 3.81
 K-nearest Neighbors, GridSearchCV | RobustScaler() | OneHotEncoder() (drop first) | 0.884 | 93.18 % | 4.01
-SVC | RobustScaler() | OneHotEncoder() (drop first) | 0.884 | - | 4.00
+SVC | RobustScaler() | OneHotEncoder() (drop first) | 0.884 | 94.64 % | 3.73
 Decision Tree | RobustScaler() | OneHotEncoder() | 0.882 | 92.67 % | 4.08
 Random Forest | RobustScaler() | OneHotEncoder() | 0.892 | 94.72 % | 3.71
 XGBoost | RobustScaler() | OneHotEncoder() (drop first) | 0.906 | 95.53 % | 3.23
