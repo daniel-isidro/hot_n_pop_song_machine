@@ -653,3 +653,7 @@ Not a summary of the work. The problem was relevant, now with your work, what ca
 [**Model Evaluation Metrics**](https://www.kdnuggets.com/2020/05/model-evaluation-metrics-machine-learning.html)
 
 # About Me
+
+<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+
+<div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="es_ES" data-type="horizontal" data-theme="light" data-vanity="daniel-isidro"><a class="LI-simple-link" href='https://es.linkedin.com/in/daniel-isidro?trk=profile-badge'>Daniel Isidro</a></div>
