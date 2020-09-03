@@ -18,8 +18,8 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 [Data Exploration](#data-exploration) <br>
 [Modeling](#modeling) <br>
 [Summary](#summary) <br>
-[Front-end](#front-end) <br>
 [Conclusions](#conclusions) <br>
+[Front-end](#front-end) <br>
 [References](#references) <br>
 [About Me](#about-me)
 
@@ -507,31 +507,6 @@ In the model analysis, `GridSearchCV` will be incorporated to the pipeline at so
 
 ![Metrics_Balanced](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/metrics_bal.png)
 
-# Summary
-
-* After all the previous analysis, we chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder()** (dropping the first column), **all features**, as our final predictive model, as it performed better in all metrics.
-
-![AUC](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_auc.png)
-
-```
-AUC - Test Set: 95.91%
-Logloss: 3.31
-best params:  {'classifier__colsample_bytree': 0.8, 'classifier__gamma': 1,
-   'classifier__learning_rate': 0.01, 'classifier__max_depth': 5,
-   'classifier__n_estimators': 1000, 'classifier__subsample': 0.8}
-best score: 0.901
-accuracy score: 0.904
-
-               precision    recall  f1-score   support
-
-         0.0       0.93      0.87      0.90      1550
-         1.0       0.88      0.94      0.91      1593
-
-    accuracy                           0.90      3143
-   macro avg       0.91      0.90      0.90      3143
-weighted avg       0.91      0.90      0.90      3143
-```
-
 * We did **feature importance scoring**, where `loudness` had 40% of the significance, and since `energy` had a fairly strong correlation to `loudness` (0.8), we tried improving the metrics retraining our selected model (XGBoost, outliers removed) leaving `energy` out. But the metrics got worse, the model lost predictive power.
 
 * **Removing 650+ outliers** in the training set did seem to help improving a little the metrics. Most of the outliers came from the random non-hit songs, feature `duration_ms`. Removing the outliers, which were valid measures and not coming from errors, decreased a little the negatives precision but **improved the negatives recall**. It also **improved the positives precision**, and did not change the positives recall.
@@ -568,7 +543,7 @@ Boxplot after removing the outliers
 
 Finally we **pickled** this last XGBoost model and we used it on the Python script of the front-end web app.
 
-### Bonus - Refining the Model
+### Refining the Model
 
 We tried to refine the first model by **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide). We rerun all steps with this **unbalanced dataset** to get a new second predictive model.
 
@@ -580,18 +555,18 @@ This time, a **Random Forest** model got better metrics, in principle, than the 
 
 ```
 AUC - Test Set: 95.67%
-Logloss: 3.43
-accuracy score: 0.901
+Logloss: 3.31
+accuracy score: 0.904
 
+               precision    recall  f1-score   support
 
-            precision    recall  f1-score   support
+         0.0       0.93      0.87      0.90      1550
+         1.0       0.88      0.94      0.91      1593
 
-0.0             0.93      0.87      0.90      1550
-1.0             0.88      0.94      0.91      1593
+    accuracy                           0.90      3143
+   macro avg       0.91      0.90      0.90      3143
+weighted avg       0.91      0.90      0.90      3143
 
-accuracy                            0.90      3143
-macro avg       0.91      0.90      0.90      3143
-weighted avg    0.91      0.90      0.90      3143
 ```
 
 2nd model - Random Forest metrics with **unbalanced** dataset:
@@ -619,7 +594,34 @@ If we were working for a **music company** and the **cost of failing to predict 
 
 If we were working for a **music company** competing with others for the rights of potentially successful songs, and the **cost of not predicting a hit song** was high, or worked for an **artist** planning to send tracks with traits of being hits to music companies for publishing, then we would choose the **first model**.
 
-For our web app we decided to **go back** to the first XGBoost model, that used a balanced dataset, as it gives more uniform predicting results between positives and negatives.
+### Summary
+
+* After all the previous analysis, for our web app we chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder()** (dropping the first column), **all features**, balanced dataset, as our final predictive model, as it performed fairly good in all metrics, and it gives more uniform predicting results between positives and negatives.
+
+![AUC](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_auc.png)
+
+```
+AUC - Test Set: 95.91%
+Logloss: 3.31
+best params:  {'classifier__colsample_bytree': 0.8, 'classifier__gamma': 1,
+   'classifier__learning_rate': 0.01, 'classifier__max_depth': 5,
+   'classifier__n_estimators': 1000, 'classifier__subsample': 0.8}
+best score: 0.901
+accuracy score: 0.904
+
+               precision    recall  f1-score   support
+
+         0.0       0.93      0.87      0.90      1550
+         1.0       0.88      0.94      0.91      1593
+
+    accuracy                           0.90      3143
+   macro avg       0.91      0.90      0.90      3143
+weighted avg       0.91      0.90      0.90      3143
+```
+
+# Conclusions
+
+Not a summary of the work. The problem was relevant, now with your work, what can you say about how the problem is solved?
 
 # Front-end
 
@@ -632,10 +634,6 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 ![web_app](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/web_app.png)
 
 Then you get the **probability** of the song being hot and popular if it was released today, and below you can play an **audio sample** of the song and see the **cover** of the corresponding album (NOTE: some tracks do not include an audio sample due to copyright reasons).
-
-# Conclusions
-
-Not a summary of the work. The problem was relevant, now with your work, what can you say about how the problem is solved?
 
 # References
 
