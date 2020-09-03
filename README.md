@@ -588,9 +588,9 @@ We found that this new model performed better when predicting negatives than the
 
 ### Cost and Optimistic/Pessimistic Metrics
 
-If we were working for a **music company** and the **cost of failing to predict a not-hit song** was high, we would use the **second model**. With it the company would may not assign promotion budget to a song with traits of not being popular. It would also be useful to **artists** willing to discard unpopular songs to send to the marketing agencies for promotion.
+If we were working for a **music company** and the **cost of failing to predict a not-hit song** was high, we would use the **second model** (RF). With it the company would may not assign promotion budget to a song with traits of not being popular. It would also be useful to **artists** willing to discard unpopular songs to send to the marketing agencies for promotion.
 
-If we were working for a **music company** competing with others for the rights of potentially successful songs, and the **cost of not predicting a hit song** was high, or worked for an **artist** planning to send tracks with traits of being hits to music companies for publishing, then we would choose the **first model**.
+If we were working for a **music company** competing with others for the rights of potentially successful songs, and the **cost of not predicting a hit song** was high, or worked for an **artist** planning to send tracks with traits of being hits to music companies for publishing, then we would choose the **first model** (XGB).
 
 # Summary
 
