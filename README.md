@@ -516,8 +516,8 @@ XGBoost metrics **before** removing the outliers:
 ```
             precision    recall  f1-score   support
 
-0.0             0.94      0.86      0.90      1601
-1.0             0.86      0.94      0.90      1542
+     0.0        0.94      0.86      0.90      1601
+     1.0        0.86      0.94      0.90      1542
 
 accuracy                            0.90      3143
 macro avg       0.90      0.90      0.90      3143
@@ -529,8 +529,8 @@ XGBoost metrics **after** removing the outliers:
 ```
             precision    recall  f1-score   support
 
-0.0             0.93      0.87      0.90      1550
-1.0             0.88      0.94      0.91      1593
+     0.0        0.93      0.87      0.90      1550
+     1.0        0.88      0.94      0.91      1593
 
 accuracy                            0.90      3143
 macro avg       0.91      0.90      0.90      3143
@@ -540,8 +540,6 @@ weighted avg    0.91      0.90      0.90      3143
 Boxplot after removing the outliers
 
 ![boxplot_removed_outliers](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_boxplot_no_outliers.png)
-
-Finally we **pickled** this last XGBoost model and we used it on the Python script of the front-end web app.
 
 ### Refining the Model
 
@@ -594,9 +592,16 @@ If we were working for a **music company** and the **cost of failing to predict 
 
 If we were working for a **music company** competing with others for the rights of potentially successful songs, and the **cost of not predicting a hit song** was high, or worked for an **artist** planning to send tracks with traits of being hits to music companies for publishing, then we would choose the **first model**.
 
-### Summary
+# Summary
 
-* After all the previous analysis, for our web app we chose **XGBoost (removing outliers), StandardScaler(), OneHotEncoder()** (dropping the first column), **all features**, balanced dataset, as our final predictive model, as it performed fairly good in all metrics, and it gives more uniform predicting results between positives and negatives.
+After all the previous analysis, as our final predictive model we chose the **XGBoost** model, with this characteristics:
+
+* Removed outliers
+* StandardScaler()
+* OneHotEncoder(), dropping the first column
+* Using all features
+
+It performed fairly good in all metrics, and it gives **more uniform predicting results** between positives and negatives.
 
 ![AUC](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_auc.png)
 
@@ -618,6 +623,8 @@ accuracy score: 0.904
    macro avg       0.91      0.90      0.90      3143
 weighted avg       0.91      0.90      0.90      3143
 ```
+
+Finally we **pickled** this XGBoost model and we used it on the Python script of the front-end web app.
 
 # Conclusions
 
