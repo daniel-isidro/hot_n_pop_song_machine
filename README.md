@@ -186,7 +186,7 @@ Using the second pickled model to make predictions on new songs.
 
 ![Billboard](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/billboard.png)
 
-For getting all the **Billboard 100** weekly hit songs and artist names in the United States, from 1962 till 2020, we perform **web scraping** on the [**Ultimate Music Database**](http://umdmusic.com/default.asp?Lang=English&Chart=D) website. We scrape this web instead of the official [Billboard.com](Billboard.com) as it contains the same data and it is more conveniently formatted (very few ads, no Javascript, no tracking code).
+For getting all the **Billboard 100** weekly hit songs and artist names in the United States, from 1962 till 2020, we perform **web scraping** on the [**Ultimate Music Database**](http://umdmusic.com/default.asp?Lang=English&Chart=D) website. We scrape this web instead of the official [Billboard.com](https://www.billboard.com) as it contains the same data and it is more conveniently formatted (very few ads, no Javascript, no tracking code).
 
 We use [**BeautifulSoup4**](https://www.crummy.com/software/BeautifulSoup/) as our Python library tool for scraping the web.
 
