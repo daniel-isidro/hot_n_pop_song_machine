@@ -406,7 +406,7 @@ dtype: float64
 * Hit songs have **higher danceability, energy** and **loudness** than not-hit songs.
 * Hit songs have **lower speechiness, acousticness, instrumentalness** and  **liveness** than not-hit songs.
 * Hit songs have **similar levels** of **key, mode, valence, tempo** than not-hit songs.
-* Most hit songs have **low variance, speechiness, instrumentalness, duration_ms** and **time_signature**.
+* Most hit songs have **low variance** in the features **speechiness, instrumentalness, duration_ms** and **time_signature**.
 * Songs are more or less **equally distributed among all keys**.
 * **Two thirds** of the songs are on the **major mode**.
 * Most of the songs are on the **4 beats by bar** (4/4) time signature.
@@ -586,6 +586,8 @@ weighted avg       0.91      0.91      0.91      6708
 
 We found that this new model performed better when predicting negatives than the first model (which used a balanced dataset), meaning **more precision and less recall predicting negatives** (negatives f1-score up from 0.90 to 0.94). But at the same time the new model **lost a lot of predictive power on the positives** (positives f1-score dropped from 0.91 to 0.80).
 
+As Random Forest models are more **robust to outliers**, we didn't remove them in this case.
+
 ### Cost and Optimistic/Pessimistic Metrics
 
 If we were working for a **music company** and the **cost of failing to predict a not-hit song** was high, we would use the **second model** (RF). With it the company would may not assign promotion budget to a song with traits of not being popular. It would also be useful to **artists** willing to discard unpopular songs to send to the marketing agencies for promotion.
@@ -628,7 +630,13 @@ Finally we **pickled** this XGBoost model and we used it on the Python script of
 
 # Conclusions
 
-Not a summary of the work. The problem was relevant, now with your work, what can you say about how the problem is solved?
+Although accurately forecasting what songs will appear on future hit lists can be difficult, as it involves many factors not related to the songs themselves (promotion budget, artist discoverability, external economic factors), the fairly good metrics we obtained on the final models in this project show that **predicting** whether a new song has the **audio traits** to potentially become a success is a task that can be accomplished thanks to Machine Learning.
+
+Different **optimistic and pessimistic models** can be applied, depending on business needs.
+
+**Web scraping, APIs and ML models** can be essential tools to perform studies on any industry (music business in this case).
+
+Creating **interactive apps** as a way to deploy  ML models may be a fun and simple way for the final user to get inside knowledge on any Data Science project.
 
 # Front-end
 
