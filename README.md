@@ -516,12 +516,12 @@ XGBoost metrics **before** removing the outliers:
 ```
             precision    recall  f1-score   support
 
-     0.0        0.94      0.86      0.90      1601
-     1.0        0.86      0.94      0.90      1542
+     0.0        0.94      0.87      0.90      1543
+     1.0        0.88      0.95      0.91      1600
 
-accuracy                            0.90      3143
-macro avg       0.90      0.90      0.90      3143
-weighted avg    0.90      0.90      0.90      3143
+accuracy                            0.91      3143
+macro avg       0.91      0.91      0.91      3143
+weighted avg    0.91      0.91      0.91      3143
 ```
 
 XGBoost metrics **after** removing the outliers:
@@ -529,8 +529,8 @@ XGBoost metrics **after** removing the outliers:
 ```
             precision    recall  f1-score   support
 
-     0.0        0.93      0.87      0.90      1550
-     1.0        0.88      0.94      0.91      1593
+     0.0        0.95      0.85      0.90      1561
+     1.0        0.87      0.95      0.91      1582
 
 accuracy                            0.90      3143
 macro avg       0.91      0.90      0.90      3143
@@ -552,20 +552,19 @@ This time, a **Random Forest** model got better metrics, in principle, than the 
 1st model - XGBoost metrics with **balanced** dataset:
 
 ```
-AUC - Test Set: 95.67%
-Logloss: 3.31
-accuracy score: 0.904
+AUC - Test Set: 95.35%
+Logloss: 3.37
+accuracy score: 0.902
 
-               precision    recall  f1-score   support
+                precision    recall  f1-score   support
 
-         0.0       0.93      0.87      0.90      1550
-         1.0       0.88      0.94      0.91      1593
+         0.0        0.95      0.85      0.90      1561
+         1.0        0.87      0.95      0.91      1582
 
-    accuracy                           0.90      3143
-   macro avg       0.91      0.90      0.90      3143
-weighted avg       0.91      0.90      0.90      3143
-
-```
+    accuracy                            0.90      3143
+   macro avg        0.91      0.90      0.90      3143
+weighted avg        0.91      0.90      0.90      3143
+```  
 
 2nd model - Random Forest metrics with **unbalanced** dataset:
 
