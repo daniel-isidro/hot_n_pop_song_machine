@@ -541,6 +541,16 @@ Boxplot after removing the outliers
 
 ![boxplot_removed_outliers](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_boxplot_no_outliers.png)
 
+### Overfitting
+
+While checking for **overfitting** we need to obtain the **accuracy difference** between **train and test set** for each fold result. If our model gives us high training accuracy but low test accuracy, our model is overfitting. If our model does not give good training accuracy, we could say our model is underfitting.
+
+To check whether the model we find by GridSearchCV is overfitted or not, we can use ```cv_results``` attribute of ```GridSearchCV```. ```cv_results``` is a dictionary which contains details (e.g. ```mean_test_score```, ```mean_score_time``` etc. ) for each combination of the parameters, given in parameters' grid. And to get training score related values (e.g. ```mean_train_score```, ```std_train_score``` etc.), we have to pass ```return_train_score = True``` which is by default false.
+
+![overfitting](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/overfitting.png)
+
+Then, comparing training and testing accuracy, we could ensure whether our model is overfitted or not. We can see on the charts that **none of our models presents high overfitting**. The cross-validation techniques employed helped on that.
+
 ### Refining the Model
 
 We tried to refine the first model by **expanding the original dataset** with 20,000 more not-hit songs, (**notebooks 8 to 12** on the execution guide). We rerun all steps with this **unbalanced dataset** to get a new second predictive model.
