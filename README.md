@@ -605,6 +605,8 @@ If we were working for a **music company** and the **cost of failing to predict 
 
 If we were working for a **music company** competing with others for the rights of potentially successful songs, and the **cost of not predicting a hit song** was high, or worked for an **artist** planning to send tracks with traits of being hits to music companies for publishing, then we would choose the **first model** (XGB).
 
+Furthermore, we could use just one model and also fine tune the **threshold** of the prediction depending on business needs (now it's neutrally set up at 50%), so only positives with probability above 90% could be considered hot, for example.
+
 # Summary
 
 After all the previous analysis, as our final predictive model we chose the **XGBoost** model, with this characteristics:
@@ -659,7 +661,7 @@ Different **optimistic and pessimistic models** can be applied, depending on bus
 
 **Web scraping, APIs and ML models** can be essential tools to perform studies on any industry (music business in this case).
 
-Creating **interactive apps** as a way to deploy  ML models may be a fun and simple way for the final user to get inside knowledge on any Data Science project.
+Creating **interactive apps** as a way to deploy ML models may be a fun and simple way for the final user to get inside knowledge on any Data Science project.
 
 # References
 
