@@ -18,8 +18,8 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 [Data Exploration](#data-exploration) <br>
 [Modeling](#modeling) <br>
 [Summary](#summary) <br>
-[Conclusions](#conclusions) <br>
 [Front-end](#front-end) <br>
+[Conclusions](#conclusions) <br>
 [References](#references) <br>
 [About Me](#about-me)
 
@@ -37,7 +37,7 @@ My idea for this project started when I found out about the existence since 2010
 
 According to the International Federation of the Phonographic Industry (IFPI), for the full year **2019** total revenues for the **global recorded music market** grew by 8.2% to **US$20.2 billion**. Streaming for the first time accounted for more than half (56.1%) of global recorded music revenue. Growth in streaming more than offset a -5.3% decline in physical revenue, a slower rate than 2018.
 
-Being able to **predict** what songs have the **traits needed** to be popular and stream well is an asset to the music industry, as it can be influential to **music companies** while producing and planning marketing campaigns. Even to **artists** it is beneficial, since they may be able to focus on songs that may be promoted later by the music companies, or more popular amongst the general public.
+Being able to **predict** what songs have the **traits needed** to be popular and stream well is an asset to the music industry, as it can be influential to **music companies** while producing and planning marketing campaigns. It is beneficial even to **artists**, since they may focus on songs that can be promoted later by the music companies, or can become more popular amongst the general public.
 
 **State-of-the-art papers** on MRI verse on audio signal processing, music discovery, music emotion recognition, polyphonic music transcription, using Deep Learning tools. Recent papers (2019) on MRI may be found on the [**International Society of Music Information Retrieval** website](http://www.ismir.net/conferences/ismir2019.html).
 
@@ -501,7 +501,7 @@ For **standardization** we'll use `RobustScaler()` (which is more robust to outl
 
 For **column encoding** we'll mostly use `OneHotEncoder()`, testing if removing the first labeled column (to avoid collinearity) improves the metrics. We'll also test `OrdinalEncoder()` out of curiosity.
 
-In the model analysis, `GridSearchCV` will be incorporated to the pipeline at some point and will be very useful to help us find the **optimal algorithm parameters**.
+In the model analysis, `GridSearchCV` is incorporated to the pipeline and will be very useful to help us find the **optimal algorithm parameters**.
 
 ### Metrics
 
@@ -614,7 +614,7 @@ After all the previous analysis, as our final predictive model we chose the **XG
 * OneHotEncoder(), dropping the first column
 * Using all features
 
-It performed fairly good in all metrics, and it gives **more uniform predicting results** between positives and negatives.
+It performed fairly good in all metrics, did not present much overfitting, and it gives **more uniform predicting results** between positives and negatives.
 
 ![AUC](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/dv_auc.png)
 
@@ -639,16 +639,6 @@ weighted avg       0.91      0.90      0.90      3143
 
 Finally we **pickled** this XGBoost model and we used it on the Python script of the front-end web app.
 
-# Conclusions
-
-Although accurately forecasting what songs will appear on future hit lists can be difficult, as it involves many factors not related to the songs themselves (promotion budget, artist discoverability, external economic factors), the fairly good metrics we obtained on the final models in this project show that **predicting** whether a new song has the **audio traits** to potentially become a success is a task that can be accomplished thanks to Machine Learning.
-
-Different **optimistic and pessimistic models** can be applied, depending on business needs.
-
-**Web scraping, APIs and ML models** can be essential tools to perform studies on any industry (music business in this case).
-
-Creating **interactive apps** as a way to deploy  ML models may be a fun and simple way for the final user to get inside knowledge on any Data Science project.
-
 # Front-end
 
 The Github repository of the **front-end web app** of the project, that uses the **Streamlit** app framework and web hosting on **Heroku**, can be found **[here](https://github.com/daniel-isidro/heroku_hot_n_pop)**. Please visit this repository for further explanation.
@@ -660,6 +650,16 @@ You can play with a live demo of the web app **[here](https://hot-n-pop-song-mac
 ![web_app](https://github.com/daniel-isidro/hot_n_pop_song_machine/blob/master/media/web_app.png)
 
 Then you get the **probability** of the song being hot and popular if it was released today, and below you can play an **audio sample** of the song and see the **cover** of the corresponding album (NOTE: some tracks do not include an audio sample due to copyright reasons).
+
+# Conclusions
+
+Although accurately forecasting what songs will appear on future hit lists can be difficult, as it involves many factors not related to the songs themselves (promotion budget, artist discoverability, external economic factors), the fairly good metrics we obtained on the final models in this project show that **predicting** whether a new song has the **audio traits** to potentially become a success is a task that can be accomplished thanks to Machine Learning.
+
+Different **optimistic and pessimistic models** can be applied, depending on business needs.
+
+**Web scraping, APIs and ML models** can be essential tools to perform studies on any industry (music business in this case).
+
+Creating **interactive apps** as a way to deploy  ML models may be a fun and simple way for the final user to get inside knowledge on any Data Science project.
 
 # References
 
